@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Ranking - BMSS Rubik's Cube Club</title>
+    <!-- Include cubing icons CSS -->
+    <link rel="stylesheet" href="https://cdn.cubing.net/v0/css/@cubing/icons/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        nav {
+            background-color: #69a769;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .active {
+            background-color: white;
+            color: #98FB98;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 80vh;
+            padding: 2rem;
+            padding-bottom: 5rem;  /* To avoid footer overlap */
+            text-align: center;
+        }
+        h1, h2 {
+            color: #69a769;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 1.8rem; margin: 1rem 0; }
+        p { max-width: 600px; line-height: 1.6; color: #666; }
+        .buttons { margin: 1rem 0; }
+        .button { background-color: #69a769; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; margin: 0 0.5rem; }
+        .button:hover { background-color: #7CFC00; }
+        .event-icons { display: flex; flex-wrap: wrap; justify-content: center; margin: 2rem 0; }
+        .event-icon { margin: 1rem; cursor: pointer; font-size: 2rem; }
+        table { width: 80%; max-width: 800px; border-collapse: collapse; margin: 2rem auto; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        table th, table td { border: 1px solid #69a769; padding: 0.8rem; text-align: left; }
+        table th { background-color: #69a769; color: white; }
+        table tr:nth-child(even) { background-color: #f2f2f2; }
+        .hidden { display: none; }  
+        footer { background-color: #69a769; color: white; text-align: center; padding: 1rem; position: fixed; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="schranking.html" class="active">School Ranking</a>
+        <a href="events.html">Events</a>
+        <a href="members.html">Members</a>
+    </nav>
+    
+    <main>
+        <h1>School Ranking</h1>
+        
+        <!-- Buttons for Unofficial, Official, and School Records -->
+        <div class="buttons">
+            <button class="button" onclick="setSection('unofficial')">Unofficial Ranking</button>
+            <button class="button" onclick="setSection('official')">Official Ranking</button>
+        </div>
+        
+        <!-- Description -->
+        <p>Discover the impressive skills of our BMSS Rubik's Cube Club members through our comprehensive rankings! Whether it's unofficial practice times, official competition results, or our top school records, explore by selecting an icon below.</p>
+        
+        <!-- Event Icons using cubing icons -->
+        <h2>Select an Event or Records</h2>
+        <div class="event-icons">
+            <span class="cubing-icon event-333 event-icon" onclick="showTable('3x3x3')"></span>  <!-- 3x3x3 icon -->
+            <span class="cubing-icon event-222 event-icon" onclick="showTable('2x2x2')"></span>  <!-- 2x2x2 icon -->
+            <span class="cubing-icon event-444 event-icon" onclick="showTable('4x4x4')"></span>  <!-- 4x4x4 icon -->
+            <span class="cubing-icon event-555 event-icon" onclick="showTable('5x5x5')"></span>  <!-- 5x5x5 icon -->
+            <span class="cubing-icon event-666 event-icon" onclick="showTable('6x6x6')"></span>  <!-- 6x6x6 icon -->
+            <span class="cubing-icon event-777 event-icon" onclick="showTable('7x7x7')"></span>  <!-- 7x7x7 icon -->
+            <span class="cubing-icon event-333bf event-icon" onclick="showTable('3x3x3BLD')"></span>  <!-- 3x3x3 BLD icon -->
+            <span class="cubing-icon event-333fm event-icon" onclick="showTable('FMC')"></span>  <!-- FMC icon -->
+            <span class="cubing-icon event-333oh event-icon" onclick="showTable('3x3x3OH')"></span>  <!-- 3x3x3 OH icon -->
+            <span class="cubing-icon event-clock event-icon" onclick="showTable('Clock')"></span>  <!-- Clock icon -->
+            <span class="cubing-icon event-minx event-icon" onclick="showTable('Megaminx')"></span>  <!-- Megaminx icon -->
+            <span class="cubing-icon event-pyram event-icon" onclick="showTable('Pyraminx')"></span>  <!-- Pyraminx icon -->
+            <span class="cubing-icon event-skewb event-icon" onclick="showTable('Skewb')"></span>  <!-- Skewb icon -->
+            <span class="cubing-icon event-sq1 event-icon" onclick="showTable('Square-1')"></span>  <!-- Square-1 icon -->
+            <span class="cubing-icon event-444bf event-icon" onclick="showTable('4x4x4BLD')"></span>  <!-- 4x4x4 BLD icon -->
+            <span class="cubing-icon event-555bf event-icon" onclick="showTable('5x5x5BLD')"></span>  <!-- 5x5x5 BLD icon -->
+            <span class="cubing-icon event-333mbf event-icon" onclick="showTable('3x3x3MBLD')"></span>  <!-- 3x3x3 MBLD icon -->
+            <img src="schrecords.png" alt="School Records" class="event-icon" onclick="showTable('schoolrecords')" width="50" height="50">  <!-- Put your image here for School Records -->
+        </div>
+        
+        <!-- Dynamic Table Area -->
+        <div id="table-area">
+            <h3 id="section-title"></h3>
+            <table id="ranking-table">
+                <thead>
+                    <tr><th>Rank</th><th>Name</th><th>Single Time</th><th>Average Time</th></tr>
+                </thead>
+                <tbody id="ranking-tbody"></tbody>
+            </table>
+            <table id="school-records-table" class="hidden">
+                <thead>
+                    <tr><th>Event</th><th>Single Record</th><th>Average Record</th><th>Holder</th></tr>
+                </thead>
+                <tbody id="school-records-tbody"></tbody>
+            </table>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
+    </footer>
+    
+    <script>
+        let currentSection = 'unofficial';
+        let currentEvent = '3x3x3';
+        
+        function setSection(section) {
+            currentSection = section;
+            if (section === 'schoolrecords') {
+                document.getElementById('ranking-table').classList.add('hidden');
+                document.getElementById('school-records-table').classList.remove('hidden');
+                document.getElementById('section-title').textContent = 'School Records';
+                loadSchoolRecords();
+            } else {
+                document.getElementById('school-records-table').classList.add('hidden');
+                document.getElementById('ranking-table').classList.remove('hidden');
+                showTable(currentEvent);
+            }
+        }
+        
+        function showTable(event) {
+            currentEvent = event;
+            if (currentSection !== 'schoolrecords') {
+                document.getElementById('section-title').textContent = event + ' Ranking';
+                loadDataForEvent(currentSection, event);
+            }
+        }
+        
+        function loadDataForEvent(type, event) {
+            fetch('rankings-data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('ranking-tbody');
+                    tbody.innerHTML = '';
+                    const eventData = data[type].find(e => e.event === event);
+                    if (eventData && eventData.data) {
+                        eventData.data.forEach(item => {
+                            const row = tbody.insertRow();
+                            row.insertCell().textContent = item.rank;
+                            row.insertCell().textContent = item.name;
+                            row.insertCell().textContent = item.single;
+                            row.insertCell().textContent = item.average;
+                        });
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="4">No data available</td></tr>';
+                    }
+                })
+                .catch(error => console.error('Error loading data:', error));
+        }
+        
+        function loadSchoolRecords() {
+            fetch('rankings-data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const schoolTbody = document.getElementById('school-records-tbody');
+                    schoolTbody.innerHTML = '';
+                    data.schoolRecords.forEach(record => {
+                        const row = schoolTbody.insertRow();
+                        row.insertCell().textContent = record.event;
+                        row.insertCell().textContent = record.single;
+                        row.insertCell().textContent = record.average;
+                        row.insertCell().textContent = record.holder;
+                    });
+                })
+                .catch(error => console.error('Error loading data:', error));
+        }
+        
+        window.onload = () => {
+            setSection('unofficial');
+            showTable('3x3x3');
+        };
+    </script>
+</body>
+</html>
