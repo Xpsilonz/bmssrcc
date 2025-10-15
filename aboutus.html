@@ -1,1 +1,120 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BMSS Rubik's Cube Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        nav {
+            background-color: #69a769;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .active {
+            background-color: white;
+            color: #69a769;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 {
+            color: #69a769;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 1rem auto;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .social-icon {
+            width: 100px; /* Same size for both icons */
+            height: auto;
+            margin: 0 1rem;
+            transition: transform 0.3s; /* Subtle hover effect */
+        }
+        .social-icon:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+        footer {
+            background-color: #69a769;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="ranking.html">School Ranking</a>
+        <a href="events.html">Events</a>
+        <a href="members.html">Members</a>
+    </nav>
+    
+    <main>
+        <h1>About Us</h1>
+        
+        <p>Welcome to the BMSS Rubik’s Cube Club — a community of problem-solvers, thinkers, and speedcubers at Burnaby Mountain Secondary!</p>
+        
+        <p>Our club brings together students who share a passion for cubing — whether you’re solving your first 3×3 or breaking national records. We meet to practice, learn new methods, share techniques, and challenge ourselves through friendly competitions and creative events.</p>
+        
+        <p>Beyond solving puzzles, we focus on building a supportive community where everyone can grow, improve, and connect with others who share the same curiosity and drive. Many of our members also compete in official WCA competitions, represent our school, and volunteer in the wider cubing community.</p>
+        
+        <p>Our goal is simple: to make cubing more than just a hobby — to make it a place where students learn, improve, and inspire each other through every turn.</p>
+        
+        <p>So whether you cube for fun, for speed, or for friendship, BMSS Rubik’s Cube Club is the perfect place to start your journey.</p>
+        
+        <!-- Social Media Icons Section -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/bmssrubikscubeclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://discord.gg/zr2RurGphZ" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg" alt="Discord" class="social-icon">
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2023 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
+    </footer>
+</body>
+</html>
