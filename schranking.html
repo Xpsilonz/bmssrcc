@@ -77,7 +77,7 @@
     <main>
         <h1>School Ranking</h1>
         
-        <!-- Buttons for Unofficial, Official, and School Records -->
+        <!-- Buttons for Unofficial and Official -->
         <div class="buttons">
             <button class="button" onclick="setSection('unofficial')">Unofficial Ranking</button>
             <button class="button" onclick="setSection('official')">Official Ranking</button>
@@ -120,7 +120,7 @@
             </table>
             <table id="school-records-table" class="hidden">
                 <thead>
-                    <tr><th>Event</th><th>Single Record</th><th>Average Record</th><th>Holder</th></tr>
+                    <tr><th>Event</th><th>Single Record</th><th>Single Holder</th><th>Average Record</th><th>Average Holder</th></tr>
                 </thead>
                 <tbody id="school-records-tbody"></tbody>
             </table>
@@ -137,7 +137,14 @@
         
         function setSection(section) {
             currentSection = section;
-            if (section === 'schoolrecords') {
+            document.getElementById('school-records-table').classList.add('hidden');
+            document.getElementById('ranking-table').classList.remove('hidden');
+            showTable(currentEvent);
+        }
+        
+        function showTable(event) {
+            currentEvent = event;
+            if (event === 'schoolrecords') {
                 document.getElementById('ranking-table').classList.add('hidden');
                 document.getElementById('school-records-table').classList.remove('hidden');
                 document.getElementById('section-title').textContent = 'School Records';
@@ -145,13 +152,6 @@
             } else {
                 document.getElementById('school-records-table').classList.add('hidden');
                 document.getElementById('ranking-table').classList.remove('hidden');
-                showTable(currentEvent);
-            }
-        }
-        
-        function showTable(event) {
-            currentEvent = event;
-            if (currentSection !== 'schoolrecords') {
                 document.getElementById('section-title').textContent = event + ' Ranking';
                 loadDataForEvent(currentSection, event);
             }
@@ -187,10 +187,12 @@
                     schoolTbody.innerHTML = '';
                     data.schoolRecords.forEach(record => {
                         const row = schoolTbody.insertRow();
-                        row.insertCell().textContent = record.event;
+                        const eventCell = row.insertCell();  // Event cell with icon and name
+                        eventCell.innerHTML = `<span class="cubing-icon event-${record.eventCode}"></span> ${record.event}`;  // Assuming eventCode is in your JSON, e.g., '222' for 2x2x2
                         row.insertCell().textContent = record.single;
+                        row.insertCell().textContent = record.singleHolder;
                         row.insertCell().textContent = record.average;
-                        row.insertCell().textContent = record.holder;
+                        row.insertCell().textContent = record.averageHolder;
                     });
                 })
                 .catch(error => console.error('Error loading data:', error));
