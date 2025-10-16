@@ -5,7 +5,7 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.91", "average": "8.52"},
         {"rank": 2, "name": "James Lin", "single": "9.87", "average": ""},
-        {"rank": 3, "name": "Ayush Shete", "single": "14.59", "average": ""}
+        {"rank": 3, "name": "Ayush Shete", "single": "14.59", "average": ""},
         {"rank": 4, "name": "Harry Yu", "single": "16.39", "average": ""},
         {"rank": 5, "name": "Matthew Park", "single": "17.02", "average": ""},
         {"rank": 6, "name": "Tristan Ng", "single": "24.67", "average": ""},
@@ -103,4 +103,5 @@
   "official": [
   ]
 }
+
 
