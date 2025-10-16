@@ -5,11 +5,11 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.91", "average": "8.52"},
         {"rank": 2, "name": "James Lin", "single": "9.87", "average": "14.06"},
-        {"rank": 3, "name": "Matthew Park", "single": "15.53", "average": "20.40"},
-        {"rank": 4, "name": "Yune Ham", "single": "27.14", "average": "37.74"},
-        {"rank": 5, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
-        {"rank": 6, "name": "Ayush Shete", "single": "14.59", "average": ""},
-        {"rank": 7, "name": "Harry Yu", "single": "16.39", "average": ""},
+        {"rank": 3, "name": "Harry Yu", "single": "16.39", "average": "19.42"},
+        {"rank": 4, "name": "Matthew Park", "single": "15.53", "average": "20.40"},
+        {"rank": 5, "name": "Yune Ham", "single": "27.14", "average": "37.74"},
+        {"rank": 6, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
+        {"rank": 7, "name": "Ayush Shete", "single": "14.59", "average": ""},
         {"rank": 8, "name": "Tristan Ng", "single": "24.67", "average": ""},
         {"rank": 9, "name": "Mathis Tsang", "single": "30.85", "average": ""},
         {"rank": 10, "name": "Onew Kim", "single": "46.03", "average": ""},
@@ -105,6 +105,7 @@
   "official": [
   ]
 }
+
 
 
 
