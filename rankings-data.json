@@ -1,0 +1,21 @@
+{
+  "unofficial": [
+    {
+      "event": "3x3x3",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.91", "average": ""},
+        {"rank": 2, "name": "James Lin", "single": "9.87", "average": ""},
+        {"rank": 3, "name": "Harry Yu", "single": "16.39", "average": ""},
+        {"rank": 4, "name": "Matthew Park", "single": "17.02", "average": ""},
+        {"rank": 5, "name": "Ethan Shi", "single": "28.45", "average": ""},
+        {"rank": 6, "name": "Yune Ham", "single": "30.27", "average": ""},
+        {"rank": 7, "name": "Mathis Tsang", "single": "30.85", "average": ""},
+        {"rank": 8, "name": "Onew Kim", "single": "46.03", "average": ""},
+        {"rank": 9, "name": "Markus Palkoci", "single": "1:00.00", "average": ""},
+        {"rank": 10, "name": "Justin Tian", "single": "1:15.15", "average": ""}
+      ]
+    }
+  ],
+  "official": [
+  ]
+}
