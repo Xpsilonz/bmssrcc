@@ -3,7 +3,7 @@
     {
       "event": "3x3x3",
       "data": [
-        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.91", "average": ""},
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.91", "average": "8.52"},
         {"rank": 2, "name": "James Lin", "single": "9.87", "average": ""},
         {"rank": 3, "name": "Harry Yu", "single": "16.39", "average": ""},
         {"rank": 4, "name": "Matthew Park", "single": "17.02", "average": ""},
@@ -19,3 +19,4 @@
   "official": [
   ]
 }
+
