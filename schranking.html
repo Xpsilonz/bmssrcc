@@ -34,7 +34,7 @@
         }
         .active {
             background-color: white;
-            color: #69a769;
+            color: #98FB98;
         }
         main {
             display: flex;
@@ -84,10 +84,10 @@
         </div>
         
         <!-- Description -->
-        <p>Discover the impressive skills of our BMSS Cubers through our comprehensive rankings! Whether it's unofficial practice times, official competition results, or our top school records, explore by selecting an icon below.</p>
+        <p>Discover the impressive skills of our BMSS Rubik's Cube Club members through our comprehensive rankings! Whether it's unofficial practice times or official competition results, explore by selecting an icon below.</p>
         
         <!-- Event Icons using cubing icons -->
-        <h2>Select an Event or Records</h2>
+        <h2>Select an Event</h2>
         <div class="event-icons">
             <span class="cubing-icon event-333 event-icon" onclick="showTable('3x3x3')"></span>  <!-- 3x3x3 icon -->
             <span class="cubing-icon event-222 event-icon" onclick="showTable('2x2x2')"></span>  <!-- 2x2x2 icon -->
@@ -106,7 +106,6 @@
             <span class="cubing-icon event-444bf event-icon" onclick="showTable('4x4x4BLD')"></span>  <!-- 4x4x4 BLD icon -->
             <span class="cubing-icon event-555bf event-icon" onclick="showTable('5x5x5BLD')"></span>  <!-- 5x5x5 BLD icon -->
             <span class="cubing-icon event-333mbf event-icon" onclick="showTable('3x3x3MBLD')"></span>  <!-- 3x3x3 MBLD icon -->
-            <img src="schrecords.png" alt="School Records" class="event-icon" onclick="showTable('schoolrecords')" width="50" height="50">  <!-- Put your image here for School Records -->
         </div>
         
         <!-- Dynamic Table Area -->
@@ -117,12 +116,6 @@
                     <tr><th>Rank</th><th>Name</th><th>Single Time</th><th>Average Time</th></tr>
                 </thead>
                 <tbody id="ranking-tbody"></tbody>
-            </table>
-            <table id="school-records-table" class="hidden">
-                <thead>
-                    <tr><th>Event</th><th>Single Record</th><th>Single Holder</th><th>Average Record</th><th>Average Holder</th></tr>
-                </thead>
-                <tbody id="school-records-tbody"></tbody>
             </table>
         </div>
     </main>
@@ -137,24 +130,13 @@
         
         function setSection(section) {
             currentSection = section;
-            document.getElementById('school-records-table').classList.add('hidden');
-            document.getElementById('ranking-table').classList.remove('hidden');
             showTable(currentEvent);
         }
         
         function showTable(event) {
             currentEvent = event;
-            if (event === 'schoolrecords') {
-                document.getElementById('ranking-table').classList.add('hidden');
-                document.getElementById('school-records-table').classList.remove('hidden');
-                document.getElementById('section-title').textContent = 'School Records';
-                loadSchoolRecords();
-            } else {
-                document.getElementById('school-records-table').classList.add('hidden');
-                document.getElementById('ranking-table').classList.remove('hidden');
-                document.getElementById('section-title').textContent = event + ' Ranking';
-                loadDataForEvent(currentSection, event);
-            }
+            document.getElementById('section-title').textContent = event + ' Ranking';
+            loadDataForEvent(currentSection, event);
         }
         
         function loadDataForEvent(type, event) {
@@ -179,25 +161,6 @@
                 .catch(error => console.error('Error loading data:', error));
         }
         
-        function loadSchoolRecords() {
-            fetch('rankings-data.json')
-                .then(response => response.json())
-                .then(data => {
-                    const schoolTbody = document.getElementById('school-records-tbody');
-                    schoolTbody.innerHTML = '';
-                    data.schoolRecords.forEach(record => {
-                        const row = schoolTbody.insertRow();
-                        const eventCell = row.insertCell();  // Event cell with icon and name
-                        eventCell.innerHTML = `<span class="cubing-icon event-${record.eventCode}"></span> ${record.event}`;  // Assuming eventCode is in your JSON, e.g., '222' for 2x2x2
-                        row.insertCell().textContent = record.single;
-                        row.insertCell().textContent = record.singleHolder;
-                        row.insertCell().textContent = record.average;
-                        row.insertCell().textContent = record.averageHolder;
-                    });
-                })
-                .catch(error => console.error('Error loading data:', error));
-        }
-        
         window.onload = () => {
             setSection('unofficial');
             showTable('3x3x3');
@@ -205,6 +168,3 @@
     </script>
 </body>
 </html>
-
-
-
