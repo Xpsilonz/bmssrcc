@@ -14,9 +14,87 @@
         {"rank": 9, "name": "Markus Palkoci", "single": "1:00.00", "average": ""},
         {"rank": 10, "name": "Justin Tian", "single": "1:15.15", "average": ""}
       ]
+    },
+    {
+      "event": "2x2x2",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.74", "average": "2.55"}
+      ]
+    },
+    {
+      "event": "4x4x4",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "36.38", "average": "44.39"}
+      ]
+    },
+    {
+      "event": "5x5x5",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1:21.16", "average": "1:30.70"}
+      ]
+    },
+    {
+      "event": "6x6x6",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2:42.16", "average": "3:03.04"}
+      ]
+    },
+    {
+      "event": "7x7x7",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "6:42.08", "average": "8:06.12"}
+      ]
+    },
+    {
+      "event": "3x3x3BLD",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "3:18.49", "average": "5:45.55"}
+      ]
+    },
+    {
+      "event": "FMC",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "29", "average": "38.66"}
+      ]
+    },
+    {
+      "event": "3x3x3OH",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "12.76", "average": "17.58"}
+      ]
+    },
+    {
+      "event": "Clock",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81"},
+        {"rank": 2, "name": "James Lin", "single": "1:08.44", "average": "DNF"}
+      ]
+    },
+    {
+      "event": "Megaminx",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "51.07", "average": "59.81"}
+      ]
+    },
+    {
+      "event": "Pyraminx",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.61", "average": "1.51"}
+      ]
+    },
+    {
+      "event": "Skewb",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.59", "average": "1.35"}
+      ]
+    },
+    {
+      "event": "Square-1",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "7.08", "average": "13.52"}
+      ]
     }
   ],
   "official": [
   ]
 }
-
