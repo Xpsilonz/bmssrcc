@@ -90,7 +90,8 @@
     {
       "event": "Pyraminx",
       "data": [
-        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.61", "average": "1.51"}
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.61", "average": "1.51"},
+        {"rank": 2, "name": "James Lin", "single": "9.38", "average": "14.08"}
       ]
     },
     {
@@ -112,6 +113,7 @@
   "official": [
   ]
 }
+
 
 
 
