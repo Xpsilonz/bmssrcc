@@ -7,18 +7,20 @@
         {"rank": 2, "name": "James Lin", "single": "9.87", "average": "14.06"},
         {"rank": 3, "name": "Harry Yu", "single": "15.64", "average": "19.42"},
         {"rank": 4, "name": "Matthew Park", "single": "15.53", "average": "20.40"},
-        {"rank": 5, "name": "Yune Ham", "single": "27.14", "average": "37.74"},
-        {"rank": 6, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
-        {"rank": 7, "name": "Ayush Shete", "single": "14.59", "average": ""},
-        {"rank": 8, "name": "Tristan Ng", "single": "24.67", "average": ""},
-        {"rank": 9, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-        {"rank": 10, "name": "Onew Kim", "single": "46.03", "average": ""},
-        {"rank": 11, "name": "Zachary Ou", "single": "58.43", "average": ""},
-        {"rank": 12, "name": "Markus Palkoci", "single": "1:00.00", "average": ""},
-        {"rank": 13, "name": "Ian Park", "single": "1:01.22", "average": ""},
-        {"rank": 14, "name": "Justin Tian", "single": "1:15.15", "average": ""},
-        {"rank": 15, "name": "Abtin Kha", "single": "1:19.18", "average": ""},
-        {"rank": 16, "name": "Jay Huang", "single": "1:38.05", "average": ""}
+        {"rank": 5, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
+        {"rank": 6, "name": "Yune Ham", "single": "27.14", "average": "37.74"},
+        {"rank": 7, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
+        {"rank": 8, "name": "Onew Kim", "single": "46.03", "average": "55.55"},
+        {"rank": 9, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
+        {"rank": 10, "name": "Tristan Ng", "single": "24.67", "average": ""},
+        {"rank": 11, "name": "Mathis Tsang", "single": "30.85", "average": ""},
+        {"rank": 12, "name": "Zachary Ou", "single": "58.43", "average": ""},
+        {"rank": 13, "name": "Markus Palkoci", "single": "1:00.00", "average": ""},
+        {"rank": 14, "name": "Ian Park", "single": "1:01.22", "average": ""},
+        {"rank": 15, "name": "Justin Tian", "single": "1:15.15", "average": ""},
+        {"rank": 16, "name": "Abtin Kha", "single": "1:19.18", "average": ""},
+        {"rank": 17, "name": "Jay Huang", "single": "1:38.05", "average": ""},
+        {"rank": 18, "name": "Daebum Yoon", "single": "1:58.12", "average": ""}
       ]
     },
     {
@@ -110,6 +112,7 @@
   "official": [
   ]
 }
+
 
 
 
