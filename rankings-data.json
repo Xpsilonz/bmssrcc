@@ -33,7 +33,7 @@
     {
       "event": "4x4x4",
       "data": [
-        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "36.38", "average": "44.39"},
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "36.38", "average": "42.24"},
         {"rank": 2, "name": "James Lin", "single": "54.34", "average": "1:04.33"}
       ]
     },
@@ -113,6 +113,7 @@
   "official": [
   ]
 }
+
 
 
 
