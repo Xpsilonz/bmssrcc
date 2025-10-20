@@ -8,8 +8,7 @@
         {"rank": 3, "name": "Harry Yu", "single": "15.64", "average": "19.42"},
         {"rank": 4, "name": "Matthew Park", "single": "15.53", "average": "20.40"},
         {"rank": 5, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
-        {"rank": 6, "name": "Yune Ham", "single": "26.02", "average": "33
-          44"},
+        {"rank": 6, "name": "Yune Ham", "single": "26.02", "average": "33.44"},
         {"rank": 7, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
         {"rank": 8, "name": "Onew Kim", "single": "46.03", "average": "55.55"},
         {"rank": 9, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
@@ -114,6 +113,7 @@
   "official": [
   ]
 }
+
 
 
 
