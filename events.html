@@ -52,7 +52,7 @@
         p { max-width: 600px; line-height: 1.6; color: #666; }
         .event-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Organized grid layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
             max-width: 1000px;
@@ -144,7 +144,7 @@
                 const response = await fetch('events-data.json');
                 const data = await response.json();
                 // Sort events by date (earliest first)
-                return data.sort((a, b) => new Date(a.date) - new Date(b.date));
+                return data.sort((a, b) => new Date(a.date + 'T00:00:00') - new Date(b.date + 'T00:00:00'));
             } catch (error) {
                 console.error('Error loading events:', error);
                 return [];
@@ -157,13 +157,14 @@
             const events = await loadEvents();
             
             events.forEach(event => {
+                const eventDate = new Date(event.date + 'T00:00:00');  // Fix date shift by setting to local midnight
                 const eventBox = document.createElement('div');
                 eventBox.className = 'event-box';
                 eventBox.innerHTML = `
                     <h3>${event.name}</h3>
-                    <p>${new Date(event.date).toLocaleDateString()}</p>
+                    <p>${eventDate.toLocaleDateString()}</p>
                     <div class="event-details">
-                        <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
+                        <p><strong>Date:</strong> ${eventDate.toLocaleDateString()}</p>
                         <p><strong>Time:</strong> ${event.time}</p>
                         <p><strong>Location:</strong> ${event.location}</p>
                         <p><strong>Description:</strong> ${makeLinksClickable(event.description)}</p>
