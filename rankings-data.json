@@ -78,7 +78,7 @@
       "event": "Clock",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81"},
-        {"rank": 2, "name": "Matthew Park", "single": "1:08.44", "average": "DNF"}
+        {"rank": 2, "name": "James Lin", "single": "1:08.44", "average": "DNF"}
       ]
     },
     {
@@ -99,7 +99,8 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.59", "average": "1.35"},
         {"rank": 2, "name": "Matthew Park", "single": "5.35", "average": "13.47"},
-        {"rank": 3, "name": "James Lin", "single": "10.22", "average": "16.26"}
+        {"rank": 3, "name": "James Lin", "single": "10.22", "average": "16.26"},
+        {"rank": 4, "name": "Yune Ham", "single": "12.21", "average": ""}
       ]
     },
     {
@@ -113,3 +114,4 @@
   "official": [
   ]
 }
+
