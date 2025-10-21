@@ -32,7 +32,7 @@
         }
         .active {
             background-color: white;
-            color: #69a769;
+            color: #98FB98;
         }
         main {
             display: flex;
@@ -118,17 +118,17 @@
     </footer>
     
     <script>
-        function getCurrentWeekDates() {
+        // Function to get the next 7 days from today
+        function getNext7Days() {
             const now = new Date();
-            const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 1));
-            const endOfWeek = new Date(startOfWeek);
-            endOfWeek.setDate(startOfWeek.getDate() + 6);
-            return { start: startOfWeek, end: endOfWeek };
+            const end = new Date(now);
+            end.setDate(now.getDate() + 7);
+            return { start: now, end: end };
         }
         
         // Function to generate general meetings for Tuesdays and Thursdays
         function generateGeneralMeetings() {
-            const { start, end } = getCurrentWeekDates();
+            const { start, end } = getNext7Days();
             const meetings = [];
             const semesterEnd = new Date('2025-06-26'); // Semester end date
             const christmasBreakStart = new Date('2024-12-20'); // Approximate Christmas break start
@@ -136,13 +136,24 @@
             const springBreakStart = new Date('2025-03-10'); // Approximate spring break start
             const springBreakEnd = new Date('2025-03-21'); // Approximate spring break end
             
+            console.log('Start date:', start.toDateString(), 'End date:', end.toDateString()); // Debug: Check date range
+            
             for (let date = new Date(start); date <= end; date.setDate(date.getDate() + 1)) {
-                if (date > semesterEnd) break; // Stop after semester end
+                console.log('Checking date:', date.toDateString(), 'Day of week:', date.getDay()); // Debug: Log each date checked
+                
+                if (date > semesterEnd) {
+                    console.log('Date after semester end, breaking');
+                    break; // Stop after semester end
+                }
                 if ((date >= christmasBreakStart && date <= christmasBreakEnd) || 
-                    (date >= springBreakStart && date <= springBreakEnd)) continue; // Skip breaks
+                    (date >= springBreakStart && date <= springBreakEnd)) {
+                    console.log('Date in break, skipping');
+                    continue; // Skip breaks
+                }
                 
                 const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 4 = Thursday
                 if (day === 2 || day === 4) { // Tuesday (2) or Thursday (4)
+                    console.log('Adding meeting for:', date.toDateString()); // Debug: Confirm meeting added
                     meetings.push({
                         name: 'General Club Meeting',
                         date: date.toISOString().split('T')[0], // YYYY-MM-DD
@@ -152,16 +163,18 @@
                     });
                 }
             }
+            console.log('Total meetings generated:', meetings.length); // Debug: Total count
             return meetings;
         }
-
+        
+        // Function to load custom events from JSON
         async function loadCustomEvents() {
             try {
                 const response = await fetch('events-data.json');
                 const data = await response.json();
                 return data.filter(event => {
                     const eventDate = new Date(event.date);
-                    const { start, end } = getCurrentWeekDates();
+                    const { start, end } = getNext7Days();
                     return eventDate >= start && eventDate <= end;
                 });
             } catch (error) {
@@ -176,6 +189,8 @@
             const generalMeetings = generateGeneralMeetings();
             const customEvents = await loadCustomEvents();
             const allEvents = [...generalMeetings, ...customEvents];
+            
+            console.log('Rendering events:', allEvents); // Debug: See all events
             
             allEvents.forEach(event => {
                 const eventBox = document.createElement('div');
