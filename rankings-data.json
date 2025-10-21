@@ -78,6 +78,7 @@
       "event": "Clock",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81"},
+        {"rank": 3, "name": "Priya Raghu", "single": "13.44", "average": "15.98"},
         {"rank": 2, "name": "James Lin", "single": "1:08.44", "average": "DNF"}
       ]
     },
@@ -114,4 +115,5 @@
   "official": [
   ]
 }
+
 
