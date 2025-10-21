@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - BMSS Rubik's Cube Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        nav {
+            background-color: #69a769;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .active {
+            background-color: white;
+            color: #69a769;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 80vh;
+            padding: 2rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #69a769;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 1.8rem; margin: 1rem 0; }
+        p { max-width: 600px; line-height: 1.6; color: #666; }
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .event-box {
+            background-color: #f9f9f9;
+            border: 2px solid #69a769;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .event-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .event-box h3 {
+            margin: 0 0 0.5rem 0;
+            color: #69a769;
+        }
+        .event-details {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e9f5e9;
+            border-radius: 5px;
+        }
+        .event-details.show {
+            display: block;
+        }
+        footer {
+            background-color: #69a769;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="schranking.html">School Ranking</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="members.html">Members</a>
+    </nav>
+    
+    <main>
+        <h1>Events</h1>
+        <p>Check out our upcoming events! Click on an event box to see more details.</p>
+        
+        <div class="event-container" id="event-container">
+            <!-- Events will be dynamically added here -->
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
+    </footer>
+    
+    <script>
+        function getCurrentWeekDates() {
+            const now = new Date();
+            const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay() + 1));
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 6);
+            return { start: startOfWeek, end: endOfWeek };
+        }
+        
+        // Function to generate general meetings for Tuesdays and Thursdays
+        function generateGeneralMeetings() {
+            const { start, end } = getCurrentWeekDates();
+            const meetings = [];
+            const semesterEnd = new Date('2025-06-26'); // Semester end date
+            const christmasBreakStart = new Date('2024-12-20'); // Approximate Christmas break start
+            const christmasBreakEnd = new Date('2025-01-05'); // Approximate Christmas break end
+            const springBreakStart = new Date('2025-03-10'); // Approximate spring break start
+            const springBreakEnd = new Date('2025-03-21'); // Approximate spring break end
+            
+            for (let date = new Date(start); date <= end; date.setDate(date.getDate() + 1)) {
+                if (date > semesterEnd) break; // Stop after semester end
+                if ((date >= christmasBreakStart && date <= christmasBreakEnd) || 
+                    (date >= springBreakStart && date <= springBreakEnd)) continue; // Skip breaks
+                
+                const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 4 = Thursday
+                if (day === 2 || day === 4) { // Tuesday (2) or Thursday (4)
+                    meetings.push({
+                        name: 'General Club Meeting',
+                        date: date.toISOString().split('T')[0], // YYYY-MM-DD
+                        time: '11:19 - 12:04',
+                        location: 'BMSS Room 220',
+                        description: 'Join us for our weekly general club meeting to discuss updates, practice, and more!' // Replace this with your description
+                    });
+                }
+            }
+            return meetings;
+        }
+
+        async function loadCustomEvents() {
+            try {
+                const response = await fetch('events-data.json');
+                const data = await response.json();
+                return data.filter(event => {
+                    const eventDate = new Date(event.date);
+                    const { start, end } = getCurrentWeekDates();
+                    return eventDate >= start && eventDate <= end;
+                });
+            } catch (error) {
+                console.error('Error loading custom events:', error);
+                return [];
+            }
+        }
+        
+        // Function to render events
+        async function renderEvents() {
+            const container = document.getElementById('event-container');
+            const generalMeetings = generateGeneralMeetings();
+            const customEvents = await loadCustomEvents();
+            const allEvents = [...generalMeetings, ...customEvents];
+            
+            allEvents.forEach(event => {
+                const eventBox = document.createElement('div');
+                eventBox.className = 'event-box';
+                eventBox.innerHTML = `
+                    <h3>${event.name}</h3>
+                    <p>${new Date(event.date).toLocaleDateString()}</p>
+                    <div class="event-details">
+                        <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
+                        <p><strong>Time:</strong> ${event.time}</p>
+                        <p><strong>Location:</strong> ${event.location}</p>
+                        <p><strong>Description:</strong> ${event.description}</p>
+                    </div>
+                `;
+                eventBox.addEventListener('click', () => {
+                    const details = eventBox.querySelector('.event-details');
+                    details.classList.toggle('show');
+                });
+                container.appendChild(eventBox);
+            });
+        }
+        
+        // Load events on page load
+        window.onload = renderEvents;
+    </script>
+</body>
+</html>
