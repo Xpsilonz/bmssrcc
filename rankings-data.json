@@ -10,7 +10,7 @@
         {"rank": 5, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
         {"rank": 6, "name": "Yune Ham", "single": "26.02", "average": "33.44"},
         {"rank": 7, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
-        {"rank": 8, "name": "Onew Kim", "single": "42.28", "average": "55.55"},
+        {"rank": 8, "name": "Onew Kim", "single": "39.46", "average": "46.05"},
         {"rank": 9, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
         {"rank": 10, "name": "Tristan Ng", "single": "24.67", "average": ""},
         {"rank": 11, "name": "Mathis Tsang", "single": "30.85", "average": ""},
@@ -78,8 +78,9 @@
       "event": "Clock",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81"},
-        {"rank": 3, "name": "Priya Raghu", "single": "13.44", "average": "15.98"},
-        {"rank": 2, "name": "James Lin", "single": "1:08.44", "average": "DNF"}
+        {"rank": 2, "name": "Priya Raghu", "single": "13.44", "average": "15.98"},
+        {"rank": 3, "name": "Siddhant Bairwa", "single": "56.94", "average": "1:06.54"},
+        {"rank": 4, "name": "James Lin", "single": "1:08.44", "average": "DNF"}
       ]
     },
     {
@@ -115,5 +116,6 @@
   "official": [
   ]
 }
+
 
 
