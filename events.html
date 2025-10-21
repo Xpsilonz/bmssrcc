@@ -51,28 +51,34 @@
         h2 { font-size: 1.8rem; margin: 1rem 0; }
         p { max-width: 600px; line-height: 1.6; color: #666; }
         .event-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Organized grid layout */
+            gap: 1.5rem;
             margin: 2rem 0;
+            max-width: 1000px;
+            width: 100%;
         }
         .event-box {
             background-color: #f9f9f9;
             border: 2px solid #69a769;
             border-radius: 8px;
-            padding: 1rem;
-            width: 250px;
+            padding: 1.5rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .event-box:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .event-box h3 {
             margin: 0 0 0.5rem 0;
             color: #69a769;
+            font-size: 1.2rem;
+        }
+        .event-box p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
         }
         .event-details {
             display: none;
@@ -80,9 +86,17 @@
             padding: 1rem;
             background-color: #e9f5e9;
             border-radius: 5px;
+            font-size: 0.9rem;
         }
         .event-details.show {
             display: block;
+        }
+        .event-details a {
+            color: #69a769;
+            text-decoration: underline;
+        }
+        .event-details a:hover {
+            color: #7CFC00;
         }
         footer {
             background-color: #69a769;
@@ -118,6 +132,12 @@
     </footer>
     
     <script>
+        // Function to convert URLs in text to clickable links
+        function makeLinksClickable(text) {
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+        }
+        
         // Function to load and sort events from JSON
         async function loadEvents() {
             try {
@@ -146,7 +166,7 @@
                         <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
                         <p><strong>Time:</strong> ${event.time}</p>
                         <p><strong>Location:</strong> ${event.location}</p>
-                        <p><strong>Description:</strong> ${event.description}</p>
+                        <p><strong>Description:</strong> ${makeLinksClickable(event.description)}</p>
                     </div>
                 `;
                 eventBox.addEventListener('click', () => {
