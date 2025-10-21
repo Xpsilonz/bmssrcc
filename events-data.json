@@ -1,0 +1,37 @@
+[
+  {
+    "name": "General Club Meeting w/ Club photos",
+    "date": "2025-10-21",
+    "time": "11:19 AM - 12:04 PM",
+    "location": "BMSS Room 220",
+    "description": "Club photos will be taken tomorrow during our regular Rubik’s Cube Club meeting.\nAfter photos, we’ll be offering CFOP method guidance for those looking to improve their solving techniques. It’s a great chance to learn new tips or refine your speed."
+  },
+  {
+    "name": "General Club Meeting",
+    "date": "2025-10-23",
+    "time": "11:05 AM - 11:50 AM",
+    "location": "BMSS Room 220",
+    "description": "We’ll be offering CFOP method tutorial for those looking to improve their speed and swtich from beginner method"
+  },
+  {
+    "name": "3x3x3 Rubik's Cube Beginner Workshop",
+    "date": "2025-10-30",
+    "time": "3:10 - 4:10 PM",
+    "location": "BMSS Room 220",
+    "description": "We'll have a workshop especially for beginner to learn how to solve a 3x3x3 Rubik's Cube!\nOnly 25 spots available! Sign Up: https://forms.office.com/r/RGb9qKYpb8"
+  },
+  {
+    "name": "Please Be Solve UBC 2025",
+    "date": "2025-11-01",
+    "time": "9:30 AM - 5:15 PM",
+    "location": "UBC, Irving K Barber Learning Centre, Room 155, Address: 1961 East Mall, Vancouver, BC V6T 1Z1",
+    "description": "Official WCA competition at UBC (blind and FMC events) Competitors Limit: 25\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/PleaseBeSolvedUBC2025/register"
+  },
+   {
+    "name": "What Are the Odds Coquitlam 2025",
+    "date": "2025-11-22",
+    "time": "9:15 AM - 5:50 PM",
+    "location": "Coquitlam, Walton Elementary School Gymnasium, Address: 2960 Walton Ave, Coquitlam, BC V3B 6V6",
+    "description": "Official WCA competition (3x3, 5x5, 3x3bld, and pyraminx) Competitors Limit:85\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/WhatAretheOddsCoquitlam2025/register"
+  }
+]
