@@ -115,8 +115,97 @@
     }
   ],
   "official": [
+    {
+      "event": "3x3x3",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "9.15", "average": "11.46"},
+        {"rank": 2, "name": "James Lin", "single": "15.42", "average": "17.87"},
+        {"rank": 3, "name": "Matthew Park", "single": "28.69", "average": "DNF"},
+      ]
+    },
+    {
+      "event": "2x2x2",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1.87", "average": "3.04"},
+        {"rank": 2, "name": "James Lin", "single": "3.54", "average": "6.05"}
+      ]
+    },
+    {
+      "event": "4x4x4",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "42.65", "average": "46.54"},
+        {"rank": 2, "name": "James Lin", "single": "1:16.05", "average": "1:28.22"}
+      ]
+    },
+    {
+      "event": "5x5x5",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1:29.78", "average": "1:34.35"}
+      ]
+    },
+    {
+      "event": "6x6x6",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2:42.16", "average": "3:03.04"}
+      ]
+    },
+    {
+      "event": "7x7x7",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "6:42.08", "average": ""}
+      ]
+    },
+    {
+      "event": "3x3x3BLD",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "DNF", "average": "DNF"}
+      ]
+    },
+    {
+      "event": "3x3x3OH",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "16.81", "average": "20.22"},
+        {"rank": 2, "name": "James Lin", "single": "32.09", "average": "37.94"}
+      ]
+    },
+    {
+      "event": "Clock",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81"},
+        {"rank": 2, "name": "Priya Raghu", "single": "13.44", "average": "15.98"},
+        {"rank": 3, "name": "James Lin", "single": "1:08.44", "average": ""}
+      ]
+    },
+    {
+      "event": "Megaminx",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "58.42", "average": "1:02.88"}
+      ]
+    },
+    {
+      "event": "Pyraminx",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1.68", "average": "3.11"},
+        {"rank": 2, "name": "James Lin", "single": "9.38", "average": "14.08"}
+      ]
+    },
+    {
+      "event": "Skewb",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1.73", "average": "3.31"},
+        {"rank": 2, "name": "James Lin", "single": "10.22", "average": "16.26"},
+      ]
+    },
+    {
+      "event": "Square-1",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "12.61", "average": "17.13"},
+        {"rank": 2, "name": "James Lin", "single": "1:24.53", "average": "DNF"}
+      ]
+    }
   ]
 }
+
 
 
 
