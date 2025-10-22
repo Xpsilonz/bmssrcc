@@ -120,7 +120,7 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "9.15", "average": "11.46"},
         {"rank": 2, "name": "James Lin", "single": "15.42", "average": "17.87"},
-        {"rank": 3, "name": "Matthew Park", "single": "28.69", "average": "DNF"},
+        {"rank": 3, "name": "Matthew Park", "single": "28.69", "average": "DNF"}
       ]
     },
     {
@@ -193,7 +193,7 @@
       "event": "Skewb",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1.73", "average": "3.31"},
-        {"rank": 2, "name": "James Lin", "single": "10.22", "average": "16.26"},
+        {"rank": 2, "name": "James Lin", "single": "10.22", "average": "16.26"}
       ]
     },
     {
@@ -205,6 +205,7 @@
     }
   ]
 }
+
 
 
 
