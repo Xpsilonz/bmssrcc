@@ -87,6 +87,7 @@
     </footer>
     
     <script>
+        // Load library items and render table
         async function loadLibrary() {
             try {
                 console.log('Fetching library-data.json...');
@@ -123,7 +124,7 @@
                         const borrowBtn = document.createElement('button');
                         borrowBtn.className = 'borrow-btn';
                         borrowBtn.textContent = 'Borrow';
-                        borrowBtn.onclick = () => showBorrowForm(item.id);
+                        borrowBtn.onclick = () => showBorrowForm(item.id, row);
                         row.insertCell().appendChild(borrowBtn);
                     }
                 });
@@ -136,7 +137,7 @@
         }
         
         // Show borrow form
-        function showBorrowForm(itemId) {
+        function showBorrowForm(itemId, row) { 
             console.log('showBorrowForm called with itemId:', itemId);
             
             const existingForm = document.querySelector('.borrow-form');
@@ -157,14 +158,8 @@
                 </form>
             `;
             
-            // Find the row and append the form
-            const row = document.querySelector(`#library-tbody tr:has(button[onclick*="${itemId}"])`);
-            if (row) {
-                console.log('Appending form to row');
-                row.appendChild(form);
-            } else {
-                console.error('Row not found for itemId:', itemId);
-            }
+            console.log('Appending form to row');
+            row.appendChild(form);
             
             document.getElementById(`borrow-form-${itemId}`).onsubmit = (e) => {
                 e.preventDefault();
@@ -184,7 +179,7 @@
                     body: JSON.stringify({ itemId, name, studentId, dueDate: dueDate.toLocaleDateString() })
                 });
                 
-                loadLibrary(); // Refresh table
+                loadLibrary();
                 form.remove();
             };
         }
