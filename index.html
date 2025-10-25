@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - BMSS Rubik's Cube Club</title>
+    <title>BMSS Rubik's Cube Club</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,51 +38,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             min-height: 80vh;
             padding: 2rem;
-            padding-bottom: 5rem;
             text-align: center;
         }
-        h1, h2 {
+        h1 {
             color: #69a769;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        h2 { font-size: 1.8rem; margin: 1rem 0; }
-        p { max-width: 600px; line-height: 1.6; color: #666; }
-        .event-container {
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #69a769;
+            margin: 2rem auto;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
+            font-size: 3rem;
+            color: white;
+            border: 5px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .event-box {
-            background-color: #f9f9f9;
-            border: 2px solid #69a769;
-            border-radius: 8px;
-            padding: 1rem;
-            width: 250px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .event-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .event-box h3 {
-            margin: 0 0 0.5rem 0;
-            color: #69a769;
-        }
-        .event-details {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #e9f5e9;
-            border-radius: 5px;
-        }
-        .event-details.show {
-            display: block;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.5;
         }
         footer {
             background-color: #69a769;
@@ -97,69 +81,24 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="aboutus.html">About Us</a>
         <a href="schranking.html">School Ranking</a>
         <a href="events.html">Events</a>
         <a href="members.html">Members</a>
-        <a href="library.html">Library</a> 
+        <a href="library.html">Library</a>
     </nav>
-    
+
     <main>
-        <h1>Events</h1>
-        <p>Check out our upcoming events! Click on an event box to see more details.</p>
-        
-        <div class="event-container" id="event-container">
-            <!-- Events will be dynamically added here -->
+        <h1>Welcome to BMSS Rubik's Cube Club</h1>
+        <div class="logo">
+            <img src="Clublogo.jpg" alt="BMSS Rubik's Cube Club Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
         </div>
+        <p class="subtitle">The home of cubers at Burnaby Mountain — where solving meets community</p>
     </main>
-    
+
     <footer>
         &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
     </footer>
-    
-    <script>
-        // Function to load and sort events from JSON
-        async function loadEvents() {
-            try {
-                const response = await fetch('events-data.json');
-                const data = await response.json();
-                // Sort events by date (earliest first)
-                return data.sort((a, b) => new Date(a.date) - new Date(b.date));
-            } catch (error) {
-                console.error('Error loading events:', error);
-                return [];
-            }
-        }
-        
-        // Function to render events
-        async function renderEvents() {
-            const container = document.getElementById('event-container');
-            const events = await loadEvents();
-            
-            events.forEach(event => {
-                const eventBox = document.createElement('div');
-                eventBox.className = 'event-box';
-                eventBox.innerHTML = `
-                    <h3>${event.name}</h3>
-                    <p>${new Date(event.date).toLocaleDateString()}</p>
-                    <div class="event-details">
-                        <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
-                        <p><strong>Time:</strong> ${event.time}</p>
-                        <p><strong>Location:</strong> ${event.location}</p>
-                        <p><strong>Description:</strong> ${event.description}</p>
-                    </div>
-                `;
-                eventBox.addEventListener('click', () => {
-                    const details = eventBox.querySelector('.event-details');
-                    details.classList.toggle('show');
-                });
-                container.appendChild(eventBox);
-            });
-        }
-        
-        // Load events on page load
-        window.onload = renderEvents;
-    </script>
 </body>
 </html>
