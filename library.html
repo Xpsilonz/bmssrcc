@@ -12,7 +12,7 @@
             background-color: white;
             color: #333;
         }
-         nav {
+        nav {
             background-color: #69a769;
             padding: 1rem;
             text-align: center;
@@ -42,13 +42,12 @@
             min-height: 80vh;
             padding: 2rem;
             padding-bottom: 5rem;
-            text-align: center;
         }
         h1, h2 {
             color: #69a769;
         }
         h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        p { max-width: 600px; line-height: 1.6; color: #666; }
+        p { max-width: 600px; line-height: 1.6; color: #666; text-align: center; }
         table { width: 80%; max-width: 800px; border-collapse: collapse; margin: 2rem auto; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         table th, table td { border: 1px solid #69a769; padding: 0.8rem; text-align: left; }
         table th { background-color: #69a769; color: white; }
@@ -88,15 +87,27 @@
     </footer>
     
     <script>
-        // Load library items and render table
         async function loadLibrary() {
             try {
+                console.log('Fetching library-data.json...');
                 const response = await fetch('library-data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const items = await response.json();
+                console.log('Loaded items:', items);
+                
                 const tbody = document.getElementById('library-tbody');
                 tbody.innerHTML = '';
                 
+                if (items.length === 0) {
+                    console.log('No items in JSON');
+                    tbody.innerHTML = '<tr><td colspan="5">No items available</td></tr>';
+                    return;
+                }
+                
                 items.forEach(item => {
+                    console.log('Rendering item:', item);
                     const borrowedData = JSON.parse(localStorage.getItem(`borrowed-${item.id}`));
                     const isBorrowed = borrowedData && new Date(borrowedData.dueDate) > new Date();
                     const row = tbody.insertRow();
@@ -116,15 +127,23 @@
                         row.insertCell().appendChild(borrowBtn);
                     }
                 });
+                console.log('Table rendered successfully');
             } catch (error) {
                 console.error('Error loading library data:', error);
+                const tbody = document.getElementById('library-tbody');
+                tbody.innerHTML = '<tr><td colspan="5">Error loading library data. Check console for details.</td></tr>';
             }
         }
         
         // Show borrow form
         function showBorrowForm(itemId) {
+            console.log('showBorrowForm called with itemId:', itemId);
+            
             const existingForm = document.querySelector('.borrow-form');
-            if (existingForm) existingForm.remove();
+            if (existingForm) {
+                console.log('Removing existing form');
+                existingForm.remove();
+            }
             
             const form = document.createElement('div');
             form.className = 'borrow-form show';
@@ -137,15 +156,24 @@
                     <button type="button" onclick="this.parentElement.parentElement.remove()">Cancel</button>
                 </form>
             `;
-            document.querySelector(`#library-tbody tr:has(button[onclick*="${itemId}"])`).appendChild(form);
+            
+            // Find the row and append the form
+            const row = document.querySelector(`#library-tbody tr:has(button[onclick*="${itemId}"])`);
+            if (row) {
+                console.log('Appending form to row');
+                row.appendChild(form);
+            } else {
+                console.error('Row not found for itemId:', itemId);
+            }
             
             document.getElementById(`borrow-form-${itemId}`).onsubmit = (e) => {
                 e.preventDefault();
+                console.log('Form submitted for itemId:', itemId);
                 const formData = new FormData(e.target);
                 const name = formData.get('name');
                 const studentId = formData.get('studentId');
                 const dueDate = new Date();
-                dueDate.setDate(dueDate.getDate() + 7); // 1 week from now
+                dueDate.setDate(dueDate.getDate() + 7);
                 
                 localStorage.setItem(`borrowed-${itemId}`, JSON.stringify({ name, studentId, dueDate: dueDate.toISOString() }));
                 
@@ -164,5 +192,4 @@
         window.onload = loadLibrary;
     </script>
 </body>
-
 </html>
