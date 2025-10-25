@@ -115,7 +115,6 @@
                     row.insertCell().textContent = item.id;
                     row.insertCell().textContent = item.name;
                     row.insertCell().textContent = item.type;
-                    row.insertCell().textContent = item.status;
                     if (isBorrowed) {
                         row.insertCell().textContent = `Borrowed by ${borrowedData.name} until ${new Date(borrowedData.dueDate).toLocaleDateString()}`;
                         row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
