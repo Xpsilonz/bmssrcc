@@ -12,5 +12,7 @@
   {"id": "11", "name": "YJ MGC 6x6", "type": "6x6x6"},
   {"id": "12", "name": "Modded Shengshou Pyraminx", "type": "Pyraminx"},
   {"id": "13", "name": "QiYi Pillowed Pyramorphix", "type": "Pyramorphix"},
-  {"id": "14", "name": "Meffert's Skewb Xtreme", "type": "Skewb Xtreme"}
+  {"id": "14", "name": "Meffert's Skewb Xtreme", "type": "Skewb"},
+  {"id": "15", "name": "Meffert's David Gear Cube V2", "type": "Gear Cube"}
 ]
+
