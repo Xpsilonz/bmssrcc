@@ -1,18 +1,17 @@
 [
-  {"id": "01", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "02", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "03", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "04", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "05", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "06", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "07", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "08", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "09", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "10", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "11", "name": "YJ MGC 6x6", "type": "6x6x6"},
-  {"id": "12", "name": "Modded Shengshou Pyraminx", "type": "Pyraminx"},
-  {"id": "13", "name": "QiYi Pillowed Pyramorphix", "type": "Pyramorphix"},
-  {"id": "14", "name": "Meffert's Skewb Xtreme", "type": "Skewb"},
-  {"id": "15", "name": "Meffert's David Gear Cube V2", "type": "Gear Cube"}
+  {"id": "01", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "02", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "03", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "04", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "05", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "06", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "07", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "08", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "09", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "10", "name": "QiYi Warrior M", "type": "3x3x3", "status": "Available"},
+  {"id": "11", "name": "YJ MGC 6x6", "type": "6x6x6", "status": "Available"},
+  {"id": "12", "name": "Modded Shengshou Pyraminx", "type": "Pyraminx", "status": "Available"},
+  {"id": "13", "name": "QiYi Pillowed Pyramorphix", "type": "Pyramorphix", "status": "Available"},
+  {"id": "14", "name": "Meffert's Skewb Xtreme", "type": "Skewb", "status": "Available"},
+  {"id": "15", "name": "Meffert's David Gear Cube V2", "type": "Gear Cube", "status": "Available"}
 ]
-
