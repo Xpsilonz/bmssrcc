@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - BMSS Rubik's Cube Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+        }
+        nav {
+            background-color: #69a769;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .active {
+            background-color: white;
+            color: #69a769;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 80vh;
+            padding: 2rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #69a769;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        p { max-width: 600px; line-height: 1.6; color: #666; }
+        table { width: 80%; max-width: 800px; border-collapse: collapse; margin: 2rem auto; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        table th, table td { border: 1px solid #69a769; padding: 0.8rem; text-align: left; }
+        table th { background-color: #69a769; color: white; }
+        table tr:nth-child(even) { background-color: #f2f2f2; }
+        .borrow-btn { background-color: #69a769; color: white; padding: 0.5rem 1rem; border: none; border-radius: 5px; cursor: pointer; }
+        .borrow-btn:hover { background-color: #7CFC00; }
+        .borrow-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+        .borrow-form { display: none; margin-top: 1rem; padding: 1rem; background-color: #e9f5e9; border-radius: 5px; }
+        .borrow-form.show { display: block; }
+        footer { background-color: #69a769; color: white; text-align: center; padding: 1rem; position: fixed; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="schranking.html">School Ranking</a>
+        <a href="events.html">Events</a>
+        <a href="members.html">Members</a>
+        <a href="library.html" class="active">Library</a>
+    </nav>
+    
+    <main>
+        <h1>Library</h1>
+        <p>Borrow cubes from our library! Click "Borrow" on an available item to reserve it. Due dates are 1 week from borrowing.</p>
+        
+        <table id="library-table">
+            <thead>
+                <tr><th>Item ID</th><th>Name</th><th>Cube Type</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="library-tbody"></tbody>
+        </table>
+    </main>
+    
+    <footer>
+        &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
+    </footer>
+    
+    <script>
+        // Load library items and render table
+        async function loadLibrary() {
+            try {
+                const response = await fetch('library-data.json');
+                const items = await response.json();
+                const tbody = document.getElementById('library-tbody');
+                tbody.innerHTML = '';
+                
+                items.forEach(item => {
+                    const borrowedData = JSON.parse(localStorage.getItem(`borrowed-${item.id}`));
+                    const isBorrowed = borrowedData && new Date(borrowedData.dueDate) > new Date();
+                    const row = tbody.insertRow();
+                    row.insertCell().textContent = item.id;
+                    row.insertCell().textContent = item.name;
+                    row.insertCell().textContent = item.type;
+                    
+                    if (isBorrowed) {
+                        row.insertCell().textContent = `Borrowed by ${borrowedData.name} until ${new Date(borrowedData.dueDate).toLocaleDateString()}`;
+                        row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
+                    } else {
+                        row.insertCell().textContent = 'Available';
+                        const borrowBtn = document.createElement('button');
+                        borrowBtn.className = 'borrow-btn';
+                        borrowBtn.textContent = 'Borrow';
+                        borrowBtn.onclick = () => showBorrowForm(item.id);
+                        row.insertCell().appendChild(borrowBtn);
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading library data:', error);
+            }
+        }
+        
+        // Show borrow form
+        function showBorrowForm(itemId) {
+            const existingForm = document.querySelector('.borrow-form');
+            if (existingForm) existingForm.remove();
+            
+            const form = document.createElement('div');
+            form.className = 'borrow-form show';
+            form.innerHTML = `
+                <h3>Borrow Item</h3>
+                <form id="borrow-form-${itemId}">
+                    <label>Name: <input type="text" name="name" required></label><br>
+                    <label>Student Number: <input type="text" name="studentId" required></label><br>
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="this.parentElement.parentElement.remove()">Cancel</button>
+                </form>
+            `;
+            document.querySelector(`#library-tbody tr:has(button[onclick*="${itemId}"])`).appendChild(form);
+            
+            document.getElementById(`borrow-form-${itemId}`).onsubmit = (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const name = formData.get('name');
+                const studentId = formData.get('studentId');
+                const dueDate = new Date();
+                dueDate.setDate(dueDate.getDate() + 7); // 1 week from now
+                
+                localStorage.setItem(`borrowed-${itemId}`, JSON.stringify({ name, studentId, dueDate: dueDate.toISOString() }));
+                
+                // Send notification
+                fetch('https://formspree.io/f/xkgpnowy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ itemId, name, studentId, dueDate: dueDate.toLocaleDateString() })
+                });
+                
+                loadLibrary(); // Refresh table
+                form.remove();
+            };
+        }
+        
+        window.onload = loadLibrary;
+    </script>
+</body>
+</html>
