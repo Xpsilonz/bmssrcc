@@ -76,7 +76,7 @@
         
         <table id="library-table">
             <thead>
-                <tr><th>Item ID</th><th>Name</th><th>Cube Type</th><th>Status</th><th>Action</th></tr>
+                <tr><th>Item ID</th><th>Name</th><th>Cube Type</th><th>Status</th><th>Borrow</th></tr>
             </thead>
             <tbody id="library-tbody"></tbody>
         </table>
@@ -115,7 +115,7 @@
                     row.insertCell().textContent = item.id;
                     row.insertCell().textContent = item.name;
                     row.insertCell().textContent = item.type;
-                    
+                    row.insertCell().textContent = item.status;
                     if (isBorrowed) {
                         row.insertCell().textContent = `Borrowed by ${borrowedData.name} until ${new Date(borrowedData.dueDate).toLocaleDateString()}`;
                         row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
