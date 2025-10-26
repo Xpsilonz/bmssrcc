@@ -1,14 +1,14 @@
 [
-  {"id": "01", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "02", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "03", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "04", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "05", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "06", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "07", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "08", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "09", "name": "QiYi Warrior M", "type": "3x3x3"},
-  {"id": "10", "name": "QiYi Warrior M", "type": "3x3x3"},
+  {"id": "01", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
+  {"id": "02", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
+  {"id": "03", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
+  {"id": "04", "name": "QiYi Warrior M (ProShop Setup)", "type": "3x3x3"},
+  {"id": "05", "name": "QiYi Warrior M (Cosmic Setup)", "type": "3x3x3"},
+  {"id": "06", "name": "QiYi Warrior M (Supernova Setup)", "type": "3x3x3"},
+  {"id": "07", "name": "QiYi Warrior M (Mystic Setup)", "type": "3x3x3"},
+  {"id": "08", "name": "QiYi Warrior M (FZ Setup)", "type": "3x3x3"},
+  {"id": "09", "name": "QiYi Warrior M (Tonnam's Setup)", "type": "3x3x3"},
+  {"id": "10", "name": "QiYi Warrior M (James's Setup)", "type": "3x3x3"},
   {"id": "11", "name": "YJ MGC 6x6", "type": "6x6x6"},
   {"id": "12", "name": "Modded Shengshou Pyraminx", "type": "Pyraminx"},
   {"id": "13", "name": "QiYi Pillowed Pyramorphix", "type": "Pyramorphix"},
@@ -16,3 +16,4 @@
   {"id": "15", "name": "Meffert's David Gear Cube V2", "type": "Gear Cube"},
   {"id": "16", "name": "QiYi Bluetooth Timer", "type": "Timer"}
 ]
+
