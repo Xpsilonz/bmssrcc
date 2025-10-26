@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library - BMSS Rubik's Cube Club</title>
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, deleteDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+        //Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBSB_5cGcn4Z1sdZMj6CIhvEgEKiDgJYkw",
+            authDomain: "bmss-rcc-library.firebaseapp.com",
+            projectId: "bmss-rcc-library",
+            storageBucket: "bmss-rcc-library.firebasestorage.app",
+            messagingSenderId: "768892439701",
+            appId: "1:768892439701:web:a8df26850cbd9237885f9c",
+            measurementId: "G-KPC7GMSWFJ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        window.db = db;
+        window.auth = auth;
+        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        window.signOut = signOut;
+        window.doc = doc;
+        window.setDoc = setDoc;
+        window.getDoc = getDoc;
+        window.deleteDoc = deleteDoc;
+        window.collection = collection;
+        window.getDocs = getDocs;
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,6 +89,8 @@
         .borrow-btn:disabled { background-color: #ccc; cursor: not-allowed; }
         .borrow-form { display: none; margin-top: 1rem; padding: 1rem; background-color: #e9f5e9; border-radius: 5px; }
         .borrow-form.show { display: block; }
+        .admin-panel { display: none; margin-top: 2rem; padding: 1rem; background-color: #f0f0f0; border: 1px solid #69a769; }
+        .admin-panel.show { display: block; }
         footer { background-color: #69a769; color: white; text-align: center; padding: 1rem; position: fixed; bottom: 0; width: 100%; }
     </style>
 </head>
@@ -74,9 +108,30 @@
         <h1>Library</h1>
         <p>Borrow cubes from our library! Click "Borrow" on an available item to reserve it. Due dates are 1 week from borrowing.</p>
         
+        <div id="auth-section">
+            <button id="admin-login-btn">Admin Login</button>
+            <div id="login-form" style="display: none;">
+                <input type="email" id="email" placeholder="Admin Email">
+                <input type="password" id="password" placeholder="Password">
+                <button id="login-btn">Login</button>
+                <button id="logout-btn" style="display: none;">Logout</button>
+            </div>
+        </div>
+        
+        <div id="admin-panel" class="admin-panel">
+            <h2>Admin Panel</h2>
+            <form id="admin-form">
+                <label>Item ID: <input type="text" name="itemId" required></label><br>
+                <label>Name: <input type="text" name="name"></label><br>
+                <label>Student ID: <input type="text" name="studentId"></label><br>
+                <button type="submit">Add/Edit Borrow</button>
+                <button type="button" id="remove-btn">Remove Borrow</button>
+            </form>
+        </div>
+        
         <table id="library-table">
             <thead>
-                <tr><th>Item ID</th><th>Name</th><th>Cube Type</th><th>Status</th><th>Borrow</th></tr>
+                <tr><th>Item ID</th><th>Name</th><th>Cube Type</th><th>Status</th><th>Action</th></tr>
             </thead>
             <tbody id="library-tbody"></tbody>
         </table>
@@ -87,36 +142,27 @@
     </footer>
     
     <script>
+        let currentUser = null;
+
         // Load library items and render table
         async function loadLibrary() {
             try {
-                console.log('Fetching library-data.json...');
                 const response = await fetch('library-data.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
                 const items = await response.json();
-                console.log('Loaded items:', items);
-                
                 const tbody = document.getElementById('library-tbody');
                 tbody.innerHTML = '';
                 
-                if (items.length === 0) {
-                    console.log('No items in JSON');
-                    tbody.innerHTML = '<tr><td colspan="5">No items available</td></tr>';
-                    return;
-                }
-                
-                items.forEach(item => {
-                    console.log('Rendering item:', item);
-                    const borrowedData = JSON.parse(localStorage.getItem(`borrowed-${item.id}`));
-                    const isBorrowed = borrowedData && new Date(borrowedData.dueDate) > new Date();
+                for (const item of items) {
+                    const borrowDoc = await getDoc(doc(window.db, 'borrows', item.id));
+                    const isBorrowed = borrowDoc.exists();
                     const row = tbody.insertRow();
                     row.insertCell().textContent = item.id;
                     row.insertCell().textContent = item.name;
                     row.insertCell().textContent = item.type;
+                    
                     if (isBorrowed) {
-                        row.insertCell().textContent = `Borrowed by ${borrowedData.name} until ${new Date(borrowedData.dueDate).toLocaleDateString()}`;
+                        const data = borrowDoc.data();
+                        row.insertCell().textContent = `Borrowed by ${data.name} until ${new Date(data.dueDate).toLocaleDateString()}`;
                         row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
                     } else {
                         row.insertCell().textContent = 'Available';
@@ -126,24 +172,16 @@
                         borrowBtn.onclick = () => showBorrowForm(item.id, row);
                         row.insertCell().appendChild(borrowBtn);
                     }
-                });
-                console.log('Table rendered successfully');
+                }
             } catch (error) {
                 console.error('Error loading library data:', error);
-                const tbody = document.getElementById('library-tbody');
-                tbody.innerHTML = '<tr><td colspan="5">Error loading library data. Check console for details.</td></tr>';
             }
         }
         
         // Show borrow form
-        function showBorrowForm(itemId, row) { 
-            console.log('showBorrowForm called with itemId:', itemId);
-            
+        function showBorrowForm(itemId, row) {
             const existingForm = document.querySelector('.borrow-form');
-            if (existingForm) {
-                console.log('Removing existing form');
-                existingForm.remove();
-            }
+            if (existingForm) existingForm.remove();
             
             const form = document.createElement('div');
             form.className = 'borrow-form show';
@@ -156,32 +194,69 @@
                     <button type="button" onclick="this.parentElement.parentElement.remove()">Cancel</button>
                 </form>
             `;
-            
-            console.log('Appending form to row');
             row.appendChild(form);
             
-            document.getElementById(`borrow-form-${itemId}`).onsubmit = (e) => {
+            document.getElementById(`borrow-form-${itemId}`).onsubmit = async (e) => {
                 e.preventDefault();
-                console.log('Form submitted for itemId:', itemId);
                 const formData = new FormData(e.target);
                 const name = formData.get('name');
                 const studentId = formData.get('studentId');
                 const dueDate = new Date();
                 dueDate.setDate(dueDate.getDate() + 7);
                 
-                localStorage.setItem(`borrowed-${itemId}`, JSON.stringify({ name, studentId, dueDate: dueDate.toISOString() }));
-                
-                // Send notification
-                fetch('https://formspree.io/f/xkgpnowy', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ itemId, name, studentId, dueDate: dueDate.toLocaleDateString() })
-                });
-                
+                await setDoc(doc(window.db, 'borrows', itemId), { name, studentId, dueDate: dueDate.toISOString() });
                 loadLibrary();
                 form.remove();
             };
         }
+        
+        // Admin login
+        document.getElementById('admin-login-btn').onclick = () => {
+            document.getElementById('login-form').style.display = 'block';
+        };
+        
+        document.getElementById('login-btn').onclick = async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            try {
+                await signInWithEmailAndPassword(window.auth, email, password);
+                currentUser = window.auth.currentUser;
+                document.getElementById('admin-panel').classList.add('show');
+                document.getElementById('logout-btn').style.display = 'inline';
+                document.getElementById('login-form').style.display = 'none';
+            } catch (error) {
+                alert('Login failed: ' + error.message);
+            }
+        };
+        
+        document.getElementById('logout-btn').onclick = async () => {
+            await signOut(window.auth);
+            currentUser = null;
+            document.getElementById('admin-panel').classList.remove('show');
+            document.getElementById('logout-btn').style.display = 'none';
+        };
+        
+        // Admin form
+        document.getElementById('admin-form').onsubmit = async (e) => {
+            e.preventDefault();
+            if (!currentUser) return;
+            const formData = new FormData(e.target);
+            const itemId = formData.get('itemId');
+            const name = formData.get('name');
+            const studentId = formData.get('studentId');
+            const dueDate = new Date();
+            dueDate.setDate(dueDate.getDate() + 7);
+            
+            await setDoc(doc(window.db, 'borrows', itemId), { name, studentId, dueDate: dueDate.toISOString() });
+            loadLibrary();
+        };
+        
+        document.getElementById('remove-btn').onclick = async () => {
+            if (!currentUser) return;
+            const itemId = document.querySelector('input[name="itemId"]').value;
+            await deleteDoc(doc(window.db, 'borrows', itemId));
+            loadLibrary();
+        };
         
         window.onload = loadLibrary;
     </script>
