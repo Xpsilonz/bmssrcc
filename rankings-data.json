@@ -96,7 +96,8 @@
       "event": "Pyraminx",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.61", "average": "1.51", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "James Lin", "single": "9.38", "average": "14.08", "wcaId": "2025LINJ04"}
+        {"rank": 2, "name": "James Lin", "single": "9.38", "average": "14.08", "wcaId": "2025LINJ04"},
+        {"rank": 3, "name": "Siddhant Bairwa", "single": "29.96", "average": "32.32"}
       ]
     },
     {
@@ -207,6 +208,7 @@
     }
   ]
 }
+
 
 
 
