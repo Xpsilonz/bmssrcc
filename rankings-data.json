@@ -31,7 +31,7 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.74", "average": "2.55", "wcaId": "2022TANT01"},
         {"rank": 2, "name": "James Lin", "single": "2.18", "average": "3.46", "wcaId": "2025LINJ04"},
-        {"rank": 3, "name": "Matthew Park", "single": "4.01", "average": "", "wcaId": "2025PARK69"}
+        {"rank": 3, "name": "Matthew Park", "single": "0.94", "average": "6.92", "wcaId": "2025PARK69"}
       ]
     },
     {
@@ -209,6 +209,7 @@
     }
   ]
 }
+
 
 
 
