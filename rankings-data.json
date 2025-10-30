@@ -8,7 +8,7 @@
         {"rank": 3, "name": "Matthew Park", "single": "12.28", "average": "18.65", "wcaId": "2025PARK69"},
         {"rank": 4, "name": "Harry Yu", "single": "14.76", "average": "19.42"},
         {"rank": 5, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
-        {"rank": 6, "name": "Yune Ham", "single": "24.25", "average": "31.91"},
+        {"rank": 6, "name": "Yune Ham", "single": "24.25", "average": "30.48"},
         {"rank": 7, "name": "Ethan Shi", "single": "28.45", "average": "38.45"},
         {"rank": 8, "name": "Mr. Leung", "single": "29.20", "average": "40.01"},
         {"rank": 9, "name": "Onew Kim", "single": "39.46", "average": "46.05"},
@@ -211,6 +211,7 @@
     }
   ]
 }
+
 
 
 
