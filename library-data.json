@@ -1,7 +1,6 @@
 [
   {"id": "01", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
   {"id": "02", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
-  {"id": "03", "name": "QiYi Warrior M (No Setup)", "type": "3x3x3"},
   {"id": "04", "name": "QiYi Warrior M (ProShop Setup)", "type": "3x3x3"},
   {"id": "05", "name": "QiYi Warrior M (Cosmic Setup)", "type": "3x3x3"},
   {"id": "06", "name": "QiYi Warrior M (Supernova Setup)", "type": "3x3x3"},
@@ -16,4 +15,5 @@
   {"id": "15", "name": "Meffert's David Gear Cube V2", "type": "Gear Cube"},
   {"id": "16", "name": "QiYi Bluetooth Timer", "type": "Timer"}
 ]
+
 
