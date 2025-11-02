@@ -164,7 +164,7 @@
     {
       "event": "3x3x3BLD",
       "data": [
-        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "DNF", "average": "DNF", "wcaId": "2022TANT01"}
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "4:08.46", "average": "DNF", "wcaId": "2022TANT01"}
       ]
     },
     {
@@ -172,6 +172,12 @@
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "16.81", "average": "20.22", "wcaId": "2022TANT01"},
         {"rank": 2, "name": "James Lin", "single": "32.09", "average": "37.94", "wcaId": "2025LINJ04"}
+      ]
+    },
+    {
+      "event": "FMC",
+      "data": [
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "36", "average": "39.00", "wcaId": "2022TANT01"}
       ]
     },
     {
@@ -211,6 +217,7 @@
     }
   ]
 }
+
 
 
 
