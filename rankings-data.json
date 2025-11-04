@@ -64,7 +64,7 @@
       "event": "3x3x3BLD",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "3:18.49", "average": "5:45.55", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "Harry Yu", "single": "8:20.15", "average": ""}
+        {"rank": 2, "name": "Harry Yu", "single": "8:20.15"}
       ]
     },
     {
@@ -92,7 +92,8 @@
     {
       "event": "Megaminx",
       "data": [
-        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "51.07", "average": "59.81", "wcaId": "2022TANT01"}
+        {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "51.07", "average": "59.81", "wcaId": "2022TANT01"},
+        {"rank": 2, "name": "Abtin Kha", "single": "8:08.25", "average": "", "w"}
       ]
     },
     {
@@ -217,6 +218,7 @@
     }
   ]
 }
+
 
 
 
