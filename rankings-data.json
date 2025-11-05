@@ -93,7 +93,7 @@
       "event": "Megaminx",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "51.07", "average": "59.81", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "Abtin Kha", "single": "8:08.25", "average": "", "w"}
+        {"rank": 2, "name": "Abtin Kha", "single": "8:08.25", "average": ""}
       ]
     },
     {
@@ -218,6 +218,7 @@
     }
   ]
 }
+
 
 
 
