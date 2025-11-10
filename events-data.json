@@ -1,10 +1,10 @@
 [
    {
     "name": "General Meeting",
-    "date": "2025-10-30",
+    "date": "2025-11-11",
     "time": "11:19 AM - 12:04 PM",
     "location": "BMSS Room 220",
-    "description": "We'll just chill and hang out. More importantly, we'll showcase our club's library system."
+    "description": "We'll just chill and hang out."
   },
   {
     "name": "3x3x3 Rubik's Cube Beginner Workshop",
@@ -14,13 +14,6 @@
     "description": "We'll have a workshop especially for beginner to learn how to solve a 3x3x3 Rubik's Cube!\nOnly 25 spots available! Sign Up: https://forms.office.com/r/RGb9qKYpb8"
   },
   {
-    "name": "Please Be Solve UBC 2025",
-    "date": "2025-11-01",
-    "time": "9:30 AM - 5:15 PM",
-    "location": "UBC, Irving K Barber Learning Centre, Room 155, Address: 1961 East Mall, Vancouver, BC V6T 1Z1",
-    "description": "Official WCA competition at UBC (blind and FMC events) Competitors Limit: 25\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/PleaseBeSolvedUBC2025/register"
-  },
-  {
     "name": "What Are the Odds Coquitlam 2025",
     "date": "2025-11-22",
     "time": "9:15 AM - 5:50 PM",
@@ -28,6 +21,7 @@
     "description": "Official WCA competition (3x3, 5x5, 3x3bld, and pyraminx) Competitors Limit:85\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/WhatAretheOddsCoquitlam2025/register"
   }
 ]
+
 
 
 
