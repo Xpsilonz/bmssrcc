@@ -4,7 +4,7 @@
       "event": "3x3x3",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "5.63", "average": "8.47", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "James Lin", "single": "9.87", "average": "14.06", "wcaId": "2025LINJ04"},
+        {"rank": 2, "name": "James Lin", "single": "9.87", "average": "13.86", "wcaId": "2025LINJ04"},
         {"rank": 3, "name": "Matthew Park", "single": "12.28", "average": "15.70", "wcaId": "2025PARK69"},
         {"rank": 4, "name": "Harry Yu", "single": "13.31", "average": "16.80"},
         {"rank": 5, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
@@ -220,6 +220,7 @@
     }
   ]
 }
+
 
 
 
