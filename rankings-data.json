@@ -16,8 +16,8 @@
         {"rank": 11, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
         {"rank": 12, "name": "Tristan Ng", "single": "24.67", "average": ""},
         {"rank": 13, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-        {"rank": 14, "name": "Abtin Kha", "single": "55.85", "average": ""}
-        {"rank": 15, "name": "Markus Palkoci", "single": "55.92", "average": ""},
+        {"rank": 15, "name": "Markus Palkoci", "single": "55.64", "average": ""},
+        {"rank": 14, "name": "Abtin Kha", "single": "55.85", "average": ""},
         {"rank": 16, "name": "Zachary Ou", "single": "58.43", "average": ""},
         {"rank": 17, "name": "Sean Leong", "single": "59.69", "average": ""},
         {"rank": 18, "name": "Ian Park", "single": "1:01.22", "average": ""},
@@ -220,6 +220,7 @@
     }
   ]
 }
+
 
 
 
