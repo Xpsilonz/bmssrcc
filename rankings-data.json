@@ -16,12 +16,12 @@
         {"rank": 11, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
         {"rank": 12, "name": "Tristan Ng", "single": "24.67", "average": ""},
         {"rank": 13, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-        {"rank": 14, "name": "Markus Palkoci", "single": "56.91", "average": ""},
-        {"rank": 15, "name": "Zachary Ou", "single": "58.43", "average": ""},
-        {"rank": 16, "name": "Sean Leong", "single": "59.69", "average": ""},
-        {"rank": 17, "name": "Ian Park", "single": "1:01.22", "average": ""},
-        {"rank": 18, "name": "Justin Tian", "single": "1:15.15", "average": ""},
-        {"rank": 19, "name": "Abtin Kha", "single": "55.85", "average": ""},
+        {"rank": 14, "name": "Abtin Kha", "single": "55.85", "average": ""}
+        {"rank": 15, "name": "Markus Palkoci", "single": "55.92", "average": ""},
+        {"rank": 16, "name": "Zachary Ou", "single": "58.43", "average": ""},
+        {"rank": 17, "name": "Sean Leong", "single": "59.69", "average": ""},
+        {"rank": 18, "name": "Ian Park", "single": "1:01.22", "average": ""},
+        {"rank": 19, "name": "Justin Tian", "single": "1:15.15", "average": ""},
         {"rank": 20, "name": "Jay Huang", "single": "1:38.05", "average": ""},
         {"rank": 21, "name": "Daebum Yoon", "single": "1:58.12", "average": ""},
         {"rank": 22, "name": "Liam Senjack", "single": "4:00.67", "average": ""}
@@ -220,6 +220,7 @@
     }
   ]
 }
+
 
 
 
