@@ -12,12 +12,12 @@
         {"rank": 7, "name": "Ethan Shi", "single": "22.76", "average": "27.88"},
         {"rank": 8, "name": "Mr. Leung", "single": "29.20", "average": "40.01"},
         {"rank": 9, "name": "Onew Kim", "single": "37.42", "average": "46.05"},
-        {"rank": 10, "name": "Mason Kwok", "single": "45.31", "average": "55.46"},
-        {"rank": 11, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
-        {"rank": 12, "name": "Tristan Ng", "single": "24.67", "average": ""},
-        {"rank": 13, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-        {"rank": 15, "name": "Markus Palkoci", "single": "55.64", "average": ""},
-        {"rank": 14, "name": "Abtin Kha", "single": "55.85", "average": ""},
+        {"rank": 10, "name": "Markus Palkoci", "single": "37.80", "average": "49.10"},
+        {"rank": 11, "name": "Mason Kwok", "single": "45.31", "average": "55.46"},
+        {"rank": 12, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
+        {"rank": 13, "name": "Tristan Ng", "single": "24.67", "average": ""},
+        {"rank": 14, "name": "Mathis Tsang", "single": "30.85", "average": ""},
+        {"rank": 15, "name": "Abtin Kha", "single": "55.85", "average": ""},
         {"rank": 16, "name": "Zachary Ou", "single": "58.43", "average": ""},
         {"rank": 17, "name": "Sean Leong", "single": "59.69", "average": ""},
         {"rank": 18, "name": "Ian Park", "single": "1:01.22", "average": ""},
@@ -223,6 +223,7 @@
     }
   ]
 }
+
 
 
 
