@@ -178,12 +178,12 @@
     <nav>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <ul id="nav-menu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="schranking.html">School Ranking</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="library.html">Library</a></li>
+            <li><a href="index.html" class="active" onclick="closeMenu()">Home</a></li>
+            <li><a href="aboutus.html" onclick="closeMenu()">About Us</a></li>
+            <li><a href="schranking.html" onclick="closeMenu()">School Ranking</a></li>
+            <li><a href="events.html" onclick="closeMenu()">Events</a></li>
+            <li><a href="members.html" onclick="closeMenu()">Members</a></li>
+            <li><a href="library.html" onclick="closeMenu()">Library</a></li>
         </ul>
     </nav>
 
@@ -201,6 +201,9 @@
     <script>
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('show');
+        }
+        function closeMenu() {
+            document.getElementById('nav-menu').classList.remove('show');
         }
     </script>
 </body>
