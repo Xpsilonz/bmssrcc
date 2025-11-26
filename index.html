@@ -21,6 +21,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         nav a {
             color: white;
@@ -110,6 +111,7 @@
                 left: 0;
                 width: 100%;
                 background-color: #69a769;
+                z-index: 1000;
             }
             nav ul.show {
                 display: flex;
@@ -202,9 +204,20 @@
         function toggleMenu() {
             document.getElementById('nav-menu').classList.toggle('show');
         }
+        
         function closeMenu() {
             document.getElementById('nav-menu').classList.remove('show');
         }
+        
+        // Close menu when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>
