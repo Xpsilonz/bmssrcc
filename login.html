@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMSS Rubik's Cube Club - Admin Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #333;
+      padding-bottom: 80px;
+    }
+    nav {
+      background-color: #69a769;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+    .active {
+      background-color: white;
+      color: #69a769;
+    }
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav li {
+      margin-left: 1rem;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 160px);
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #69a769;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .login-box {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #69a769;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #558a55;
+    }
+    .error {
+      color: red;
+      margin-top: 1rem;
+    }
+    .helper {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .helper a {
+      color: #69a769;
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #69a769;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        justify-content: space-between;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #69a769;
+        z-index: 1000;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav li {
+        margin: 0;
+        text-align: center;
+        padding: 1rem;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="schranking.html">School Ranking</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="members.html">Members</a></li>
+      <li><a href="library.html">Library</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Admin Login</h1>
+    <div class="login-box">
+      <form id="loginForm">
+        <label for="githubKey">Enter GitHub Key:</label>
+        <input type="password" id="githubKey" name="password" autocomplete="current-password" required>
+        <button type="submit">Login</button>
+        <div id="error" class="error"></div>
+        <div class="helper">
+          Don’t have a GitHub key? <a href="https://github.com/settings/tokens/new" target="_blank">Click here</a>.<br>
+          In the note type in <strong>bmssrcc</strong> and give it <strong>repo</strong> access then copy the token here. You must be a collaborator of Tonnan's github repo.
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    }
+    function closeMenu() {
+      document.getElementById('nav-menu').classList.remove('show');
+    }
+    document.addEventListener('click', function(event) {
+      const navMenu = document.getElementById('nav-menu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    const repoOwner = "Chatprime64"; // replace with your GitHub username
+    const repoName = "bmssrcc";      // replace with your repo name
+
+    document.getElementById("loginForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const key = document.getElementById("githubKey").value;
+      const errorDiv = document.getElementById("error");
+
+      try {
+        // Test the key by calling GitHub API
+        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`, {
+          headers: { Authorization: `token ${key}` }
+        });
+
+        if (response.ok) {
+          // Store as session cookie (deleted when browser closes)
+          document.cookie = `githubKey=${key}; path=/; Secure; SameSite=Strict`;
+          // Redirect to admin panel
+          window.location.href = "/bmssrcc/admin/index.html";
+        } else {
+          errorDiv.textContent = "❌ Invalid GitHub key or no access to repo.";
+        }
+      } catch (err) {
+        errorDiv.textContent = "⚠️ Error connecting to GitHub.";
+      }
+    });
+  </script>
+</body>
+</html>
