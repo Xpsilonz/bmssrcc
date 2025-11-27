@@ -237,7 +237,6 @@
             document.getElementById('nav-menu').classList.remove('show');
         }
         
-        // Close menu when clicking outside of it
         document.addEventListener('click', function(event) {
             const navMenu = document.getElementById('nav-menu');
             const menuToggle = document.querySelector('.menu-toggle');
@@ -247,13 +246,11 @@
             }
         });
         
-        // Function to convert URLs in text to clickable links
         function makeLinksClickable(text) {
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
         }
         
-        // Function to load and sort events from JSON
         async function loadEvents() {
             try {
                 const response = await fetch('events-data.json');
@@ -266,13 +263,12 @@
             }
         }
         
-        // Function to render events
         async function renderEvents() {
             const container = document.getElementById('event-container');
             const events = await loadEvents();
             
             events.forEach(event => {
-                const eventDate = new Date(event.date + 'T00:00:00');  // Fix date shift by setting to local midnight
+                const eventDate = new Date(event.date + 'T00:00:00');
                 const eventBox = document.createElement('div');
                 eventBox.className = 'event-box';
                 eventBox.innerHTML = `
@@ -293,8 +289,8 @@
             });
         }
         
-        // Load events on page load
         window.onload = renderEvents;
     </script>
 </body>
 </html>
+
