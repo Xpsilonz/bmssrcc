@@ -15,18 +15,19 @@
         {"rank": 10, "name": "Mason Kwok", "single": "45.31", "average": "55.45"},
         {"rank": 11, "name": "Markus Palkoci", "single": "37.80", "average": "56.54"},
         {"rank": 12, "name": "Siddhant Bairwa", "single": "46.52", "average": "59.11"},
-        {"rank": 13, "name": "Tristan Ng", "single": "24.67", "average": ""},
-        {"rank": 14, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-        {"rank": 15, "name": "Abtin Kha", "single": "55.85", "average": ""},
-        {"rank": 16, "name": "Zachary Ou", "single": "58.43", "average": ""},
-        {"rank": 17, "name": "Sean Leong", "single": "59.69", "average": ""},
+        {"rank": 13, "name": "Sunny Phan", "single": "54.49", "average": "1:02.04"}
+        {"rank": 14, "name": "Tristan Ng", "single": "24.67", "average": ""},
+        {"rank": 15, "name": "Mathis Tsang", "single": "30.85", "average": ""},
+        {"rank": 16, "name": "Abtin Kha", "single": "55.85", "average": ""},
+        {"rank": 17, "name": "Zachary Ou", "single": "58.43", "average": ""},
+        {"rank": 18, "name": "Sean Leong", "single": "59.69", "average": ""},
         {"rank": 18, "name": "Ian Park", "single": "1:01.22", "average": ""},
-        {"rank": 19, "name": "Justin Tian", "single": "1:05.00", "average": ""},
-        {"rank": 20, "name": "Priya Raghu", "single": "1:21.00", "average": ""},
-        {"rank": 21, "name": "Hugo Akesson", "single": "1:25.00", "average": ""},
-        {"rank": 22, "name": "Jay Huang", "single": "1:38.05", "average": ""},
-        {"rank": 23, "name": "Daebum Yoon", "single": "1:58.12", "average": ""},
-        {"rank": 24, "name": "Liam Senjack", "single": "4:00.67", "average": ""}
+        {"rank": 20, "name": "Justin Tian", "single": "1:05.00", "average": ""},
+        {"rank": 21, "name": "Priya Raghu", "single": "1:21.00", "average": ""},
+        {"rank": 22, "name": "Hugo Akesson", "single": "1:25.00", "average": ""},
+        {"rank": 23, "name": "Jay Huang", "single": "1:38.05", "average": ""},
+        {"rank": 24, "name": "Daebum Yoon", "single": "1:58.12", "average": ""},
+        {"rank": 25, "name": "Liam Senjack", "single": "4:00.67", "average": ""}
       ]
     },
     {
