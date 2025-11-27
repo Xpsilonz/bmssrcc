@@ -251,6 +251,21 @@
             return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
         }
         
+        function formatDateRange(startDate, endDate) {
+            if (!endDate || startDate === endDate) {
+                return new Date(startDate + 'T00:00:00').toLocaleDateString();
+            }
+            
+            const start = new Date(startDate + 'T00:00:00');
+            const end = new Date(endDate + 'T00:00:00');
+            
+            if (start.getMonth() === end.getMonth()) {
+                return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.getDate()}, ${start.getFullYear()}`;
+            } else {
+                return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+            }
+        }
+        
         async function loadEvents() {
             try {
                 const response = await fetch('events-data.json');
@@ -269,13 +284,15 @@
             
             events.forEach(event => {
                 const eventDate = new Date(event.date + 'T00:00:00');
+                const eventEndDate = event.endDate ? new Date(event.endDate + 'T00:00:00') : null;
+                
                 const eventBox = document.createElement('div');
                 eventBox.className = 'event-box';
                 eventBox.innerHTML = `
                     <h3>${event.name}</h3>
-                    <p>${eventDate.toLocaleDateString()}</p>
+                    <p>${formatDateRange(event.date, event.endDate)}</p>
                     <div class="event-details">
-                        <p><strong>Date:</strong> ${eventDate.toLocaleDateString()}</p>
+                        <p><strong>Date:</strong> ${formatDateRange(event.date, event.endDate)}</p>
                         <p><strong>Time:</strong> ${event.time}</p>
                         <p><strong>Location:</strong> ${event.location}</p>
                         <p><strong>Description:</strong> ${makeLinksClickable(event.description)}</p>
@@ -293,4 +310,3 @@
     </script>
 </body>
 </html>
-
