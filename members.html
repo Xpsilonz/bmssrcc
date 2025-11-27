@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members - BMSS Rubik's Cube Club</title>
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -73,29 +72,90 @@
             color: #69a769;
             font-weight: 700;
         }
-        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 1.8rem; margin: 1rem 0; }
-        p { max-width: 600px; line-height: 1.6; color: #666; font-size: 1rem; margin-bottom: 1rem; }
-        ul {
-            list-style: none;
-            padding: 0;
-            width: 80%;
-            max-width: 600px;
-            text-align: center; 
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 1.5rem; 
         }
-        ul li {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-            transition: color 0.3s;
-            text-align: center;  
+        h2 { 
+            font-size: 1.8rem; 
+            margin: 2rem 0 1rem 0;
         }
-        ul li a {
+        p { 
+            max-width: 600px; 
+            line-height: 1.6; 
+            color: #666; 
+            font-size: 1rem; 
+            margin-bottom: 1rem; 
+        }
+        .member-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 1rem 0;
+        }
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .member-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .member-name {
+            font-weight: 700;
+            color: #69a769;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .member-role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .member-contact {
+            margin-top: 0.5rem;
+        }
+        .member-contact a {
             color: #69a769;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
-        ul li a:hover {
-            text-decoration: underline;
+        .member-contact a:hover {
             color: #7CFC00;
+            text-decoration: underline;
+        }
+        .search-box {
+            margin: 1rem 0;
+            padding: 0.8rem 1rem;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid #69a769;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus {
+            border-color: #7CFC00;
+        }
+        .member-count {
+            background: #69a769;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 1rem 0;
         }
         footer {
             background-color: #69a769;
@@ -107,7 +167,7 @@
             width: 100%;
             font-size: 0.9rem;
         }
-        
+
         @media (max-width: 768px) {
             nav {
                 justify-content: space-between;
@@ -139,15 +199,11 @@
             h2 {
                 font-size: 1.5rem;
             }
-            p {
-                font-size: 1rem;
-                padding: 0 1rem;
+            .member-grid {
+                grid-template-columns: 1fr;
             }
             main {
                 padding: 1.5rem 1rem;
-            }
-            ul {
-                width: 95%;
             }
             footer {
                 font-size: 0.9rem;
@@ -169,15 +225,11 @@
             h2 {
                 font-size: 1.3rem;
             }
-            p {
-                font-size: 0.9rem;
+            .search-box {
+                width: 90%;
             }
             main {
                 padding: 1rem 0.5rem;
-                min-height: calc(100vh - 200px);
-            }
-            ul {
-                width: 100%;
             }
             footer {
                 font-size: 0.8rem;
@@ -201,48 +253,208 @@
     </nav>
     
     <main>
-        <h1>Members</h1>
+        <h1>Club Members</h1>
+        <div class="member-count">Total Members: 28</div>
         
-        <!-- Sponsor Teacher -->
-        <h2>Sponsor Teacher</h2>
-        <p>Mr. Luke Vanderzalm</p>
+        <input type="text" class="search-box" id="memberSearch" placeholder="Search members by name..." onkeyup="searchMembers()">
         
-        <!-- Presidents -->
-        <h2>Presidents</h2>
-        <ul>
-            <li><a href="https://www.instagram.com/jam3s_l1n?igsh=MTRvNXhtODhhdGtuYQ==" target="_blank" rel="noopener noreferrer">James Lin</a></li>
-            <li><a href="https://www.instagram.com/t0nnxmm__?igsh=MW94MTRyajQ1YmdzMQ==" target="_blank" rel="noopener noreferrer">Tonnam Tantikamnerdkul</a></li>
-        </ul>
-        
-        <!-- Members (Alphabetically Sorted) -->
-        <h2>Members</h2>
-        <ul>
-            <li><a href="https://www.instagram.com/abtinkhaksar?igsh=MTQ3a3o4cGhjeWE5cQ==" target="_blank" rel="noopener noreferrer">Abtin Khaksarzareha</a></li>
-            <li><a href="https://www.instagram.com/ayushete_?igsh=Mm0yMjV1a2tzcXFo" target="_blank" rel="noopener noreferrer">Ayush Shete</a></li>
-            <li><a href="https://www.instagram.com/bentoto123?igsh=MWNsOTk0NnRxMTdrZw==" target="_blank" rel="noopener noreferrer">Ben - Thien Bao Nguyen To</a></li>
-            <li>Cannon Rowe</li>
-            <li><a href="https://www.instagram.com/daebum327?igsh=a2hhZnZ0NW9lZ3Fv" target="_blank" rel="noopener noreferrer">Daebum Yoon</a></li>
-            <li><a href="https://www.instagram.com/owlrunz?igsh=MWhleml6bGFoaTQ2MQ==" target="_blank" rel="noopener noreferrer">Ethan Shi</a></li>
-            <li><a href="https://www.instagram.com/harryyu1228?igsh=MWRiMHc3YzViMW5sZA==" target="_blank" rel="noopener noreferrer">Harry Yu</a></li>
-            <li>Hugo Akesson</li>
-            <li>Ian Park</li>
-            <li>Jay Huang</li>
-            <li><a href="https://www.instagram.com/eclipticextent?igsh=MXN5MG9vcTBucW5qMQ==" target="_blank" rel="noopener noreferrer">Justin Tian</a></li>
-            <li>Manzoor Hussain Daryabi</li>
-            <li>Markus Palkoci</li>
-            <li>Marawan Shaaban</li>
-            <li>Mason Kwok</li>
-            <li><a href="https://www.instagram.com/randomguynamedmathis?igsh=c2NzazdjZXN6dzc4" target="_blank" rel="noopener noreferrer">Mathis Tsang</a></li>
-            <li><a href="https://www.instagram.com/mxst1c_?igsh=MXR0MHh3bjJ3NGZnaA==" target="_blank" rel="noopener noreferrer">Matthew Park</a></li>
-            <li><a href="https://www.instagram.com/_fxpsy?igsh=MW94MTRyajQ1YmdzMQ==" target="_blank" rel="noopener noreferrer">Onew Kim</a></li>
-            <li>Priya Raghu</li>
-            <li><a href="https://www.instagram.com/saanvi_x3x.1?igsh=MXN3MmhkNWc0enRiaQ==" target="_blank" rel="noopener noreferrer">Saanvi Bhargava</a></li>
-            <li><a href="https://www.instagram.com/sedant_b?igsh=MXRrNzk3YWwybTRvdg==" target="_blank" rel="noopener noreferrer">Siddhant Bairwa</a></li>
-            <li><a href="https://www.instagram.com/sunnypoon_0515?igsh=d25qeG84bzk3ODV6" target="_blank" rel="noopener noreferrer">Sunny Phan</a></li>
-            <li><a href="https://www.instagram.com/_tristanng?igsh=MWZpdTF4b3FpMWw5dg==" target="_blank" rel="noopener noreferrer">Tristan Ng</a></li>
-            <li><a href="https://www.instagram.com/eduritez25?igsh=MWU1NWJkY3h5eXVoMw==" target="_blank" rel="noopener noreferrer">Yune Ham</a></li>
-            <li><a href="https://www.instagram.com/zacharyou_?igsh=MTY3dXhiOWN4b3Fnbg==" target="_blank" rel="noopener noreferrer">Zachary Ou</a></li>
-        </ul>
+        <div class="member-section">
+            <h2>Sponsor Teacher</h2>
+            <div class="member-grid">
+                <div class="member-card">
+                    <div class="member-name">Mr. Luke Vanderzalm</div>
+                    <div class="member-role">Club Sponsor</div>
+                    <p>Providing guidance and support for all club activities and events.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="member-section">
+            <h2>Presidents</h2>
+            <div class="member-grid">
+                <div class="member-card">
+                    <div class="member-name">James Lin</div>
+                    <div class="member-role">Co-President</div>
+                    <p>Leading club initiatives and organizing competitions.</p>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/jam3s_l1n?igsh=MTRvNXhtODhhdGtuYQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Tonnam Tantikamnerdkul</div>
+                    <div class="member-role">Co-President</div>
+                    <p>Managing club operations and member engagement.</p>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/t0nnxmm__?igsh=MW94MTRyajQ1YmdzMQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="member-section">
+            <h2>Club Members</h2>
+            <div class="member-grid" id="membersList">
+                <div class="member-card">
+                    <div class="member-name">Abtin Khaksarzareha</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/abtinkhaksar?igsh=MTQ3a3o4cGhjeWE5cQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Ayush Shete</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/ayushete_?igsh=Mm0yMjV1a2tzcXFo" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Ben - Thien Bao Nguyen To</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/bentoto123?igsh=MWNsOTk0NnRxMTdrZw==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Cannon Rowe</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Daebum Yoon</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/daebum327?igsh=a2hhZnZ0NW9lZ3Fv" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Ethan Shi</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/owlrunz?igsh=MWhleml6bGFoaTQ2MQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Harry Yu</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/harryyu1228?igsh=MWRiMHc3YzViMW5sZA==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Hugo Akesson</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Ian Park</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Jay Huang</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Justin Tian</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/eclipticextent?igsh=MXN5MG9vcTBucW5qMQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Manzoor Hussain Daryabi</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Markus Palkoci</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Marawan Shaaban</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Mason Kwok</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Mathis Tsang</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/randomguynamedmathis?igsh=c2NzazdjZXN6dzc4" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Matthew Park</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/mxst1c_?igsh=MXR0MHh3bjJ3NGZnaA==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Onew Kim</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/_fxpsy?igsh=MW94MTRyajQ1YmdzMQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Priya Raghu</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Saanvi Bhargava</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/saanvi_x3x.1?igsh=MXN3MmhkNWc0enRiaQ==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Siddhant Bairwa</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/sedant_b?igsh=MXRrNzk3YWwybTRvdg==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Sunny Phan</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/sunnypoon_0515?igsh=d25qeG84bzk3ODV6" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Tristan Ng</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/_tristanng?igsh=MWZpdTF4b3FpMWw5dg==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Yune Ham</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/eduritez25?igsh=MWU1NWJkY3h5eXVoMw==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-name">Zachary Ou</div>
+                    <div class="member-contact">
+                        <a href="https://www.instagram.com/zacharyou_?igsh=MTY3dXhiOWN4b3Fnbg==" target="_blank" rel="noopener noreferrer">
+                            📷 Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     
     <footer>
@@ -255,6 +467,21 @@
         
         function closeMenu() {
             document.getElementById('nav-menu').classList.remove('show');
+        }
+        
+        function searchMembers() {
+            const input = document.getElementById('memberSearch');
+            const filter = input.value.toLowerCase();
+            const members = document.getElementById('membersList').getElementsByClassName('member-card');
+            
+            for (let i = 0; i < members.length; i++) {
+                const name = members[i].getElementsByClassName('member-name')[0].textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    members[i].style.display = '';
+                } else {
+                    members[i].style.display = 'none';
+                }
+            }
         }
         
         document.addEventListener('click', function(event) {
