@@ -346,9 +346,6 @@
             if (centiseconds === 0) return '';
             
             if (eventId === '333fm') {
-                if (centiseconds >= 0) {
-                    return (centiseconds / 100).toFixed(1);
-                }
                 return centiseconds;
             }
             
@@ -461,8 +458,12 @@
                         const nameCell = row.insertCell();
                         nameCell.innerHTML = `<a href="https://www.worldcubeassociation.org/persons/${result.wcaId}" target="_blank" rel="noopener noreferrer">${result.name}</a>`;
                         
-                        const singleTime = formatTime(result.single, wcaEventId);
-                        const averageTime = formatTime(result.average, wcaEventId);
+                        let singleTime = formatTime(result.single, wcaEventId);
+                        let averageTime = formatTime(result.average, wcaEventId);
+                        
+                        if (wcaEventId === '333fm' && result.average > 0) {
+                            averageTime = (result.average / 100).toFixed(2);
+                        }
                         
                         row.insertCell().textContent = singleTime;
                         row.insertCell().textContent = averageTime;
@@ -482,5 +483,3 @@
     </script>
 </body>
 </html>
-
-
