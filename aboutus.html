@@ -11,12 +11,17 @@
             padding: 0;
             background-color: white;
             color: #333;
+            padding-bottom: 80px;
         }
         nav {
             background-color: #69a769;
             padding: 1rem;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
         nav a {
             color: white;
@@ -33,6 +38,22 @@
         .active {
             background-color: white;
             color: #69a769;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav li {
+            margin-left: 1rem;
         }
         main {
             display: flex;
@@ -79,16 +100,85 @@
             bottom: 0;
             width: 100%;
         }
+        
+        @media (max-width: 768px) {
+            nav {
+                justify-content: space-between;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #69a769;
+                z-index: 1000;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            main {
+                padding: 1.5rem 1rem;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-bottom: 100px;
+            }
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.6rem 0.8rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            main {
+                padding: 1rem 0.5rem;
+                min-height: calc(100vh - 200px);
+            }
+            footer {
+                font-size: 0.8rem;
+                padding: 0.6rem;
+                line-height: 1.4;
+            }
+        }
     </style>
 </head>
 <body>
-   <nav>
-        <a href="index.html">Home</a>
-        <a href="aboutus.html" class = "active">About Us</a>
-        <a href="schranking.html">School Ranking</a>
-        <a href="events.html">Events</a>
-        <a href="members.html">Members</a>
-        <a href="library.html">Library</a>
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+            <li><a href="aboutus.html" class="active" onclick="closeMenu()">About Us</a></li>
+            <li><a href="schranking.html" onclick="closeMenu()">School Ranking</a></li>
+            <li><a href="events.html" onclick="closeMenu()">Events</a></li>
+            <li><a href="members.html" onclick="closeMenu()">Members</a></li>
+            <li><a href="library.html" onclick="closeMenu()">Library</a></li>
+        </ul>
     </nav>
     
     <main>
@@ -104,7 +194,7 @@
         
         <p>So whether you cube for fun, for speed, or for friendship, BMSS Rubik’s Cube Club is the perfect place to start your journey.</p>
         
-        <!-- Social Media Icons Section -->
+        <!-- Social Media Icons-->
         <div class="social-icons">
             <a href="https://www.instagram.com/bmssrubikscubeclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram" class="social-icon">
@@ -118,5 +208,23 @@
     <footer>
         &copy; 2025 BMSS Rubik's Cube Club. Hosted on GitHub Pages.
     </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        }
+        
+        function closeMenu() {
+            document.getElementById('nav-menu').classList.remove('show');
+        }
+        
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+    </script>
 </body>
 </html>
