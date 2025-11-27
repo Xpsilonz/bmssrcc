@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMSS Rubik's Cube Club - Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #333;
+      padding-bottom: 80px;
+    }
+    nav {
+      background-color: #69a769;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    nav h1 {
+      color: white;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .logout-btn {
+      background-color: #4a7c4a;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .logout-btn:hover {
+      background-color: #69a769;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: calc(100vh - 160px);
+      padding: 2rem;
+      text-align: center;
+    }
+    h2 {
+      color: #69a769;
+      margin-bottom: 1rem;
+    }
+    .admin-box {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .admin-box label, .admin-box p {
+      display: block;
+      margin-top: 1rem;
+    }
+    .admin-box input[type="text"], .admin-box select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .admin-box button {
+      margin-top: 1.5rem;
+      background-color: #69a769;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .admin-box button:hover {
+      background-color: #558a55;
+    }
+    footer {
+      background-color: #69a769;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Admin Panel</h1>
+    <div>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="admin-box">
+      <h2>Update Times</h2>
+      <form id="updateForm">
+        <p><strong>Update Type:</strong></p>
+        <label><input type="radio" name="updateType" value="single" required> Personal Best (Single)</label>
+        <label><input type="radio" name="updateType" value="average"> Average</label>
+
+        <p><strong>Cube Type:</strong></p>
+        <select id="cubeType" name="cubeType" required>
+          <option value="">--Select Cube--</option>
+          <option>3x3x3</option>
+          <option>2x2x2</option>
+          <option>4x4x4</option>
+          <option>5x5x5</option>
+          <option>6x6x6</option>
+          <option>7x7x7</option>
+          <option>3x3x3BLD</option>
+          <option>FMC</option>
+          <option>3x3x3OH</option>
+          <option>Clock</option>
+          <option>Megaminx</option>
+          <option>Pyraminx</option>
+          <option>Skewb</option>
+          <option>Square-1</option>
+        </select>
+
+        <p><strong>Member:</strong></p>
+        <select id="memberName" name="memberName" required>
+          <option value="">--Select Member--</option>
+          <option>Tonnam Tantikamnerdkul</option>
+          <option>James Lin</option>
+          <option>Matthew Park</option>
+          <option>Harry Yu</option>
+          <option>Ayush Shete</option>
+          <option>Yune Ham</option>
+          <option>Ethan Shi</option>
+          <option>Mr. Leung</option>
+          <option>Onew Kim</option>
+          <option>Markus Palkoci</option>
+          <option>Mason Kwok</option>
+          <option>Siddhant Bairwa</option>
+          <option>Tristan Ng</option>
+          <option>Mathis Tsang</option>
+          <option>Abtin Kha</option>
+          <option>Zachary Ou</option>
+          <option>Sean Leong</option>
+          <option>Ian Park</option>
+          <option>Justin Tian</option>
+          <option>Priya Raghu</option>
+          <option>Hugo Akesson</option>
+          <option>Daebum Yoon</option>
+          <option>Liam Senjack</option>
+        </select>
+
+        <p><strong>New Time:</strong></p>
+        <input type="text" id="newTime" name="newTime" placeholder="e.g. 5:23.46" required>
+
+        <button type="submit">Update</button>
+      </form>
+
+      <div id="updateMessage" style="margin-top:1rem; color:#69a769; font-weight:bold;"></div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 BMSS Rubik's Cube Club. Admin Panel
+  </footer>
+
+  <script>
+    const repoOwner = "Chatprime64"; // replace with your GitHub username
+    const repoName = "bmssrcc";      // replace with your repo name
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    async function checkAuth() {
+      const key = getCookie("githubKey");
+      if (!key) {
+        window.location.href = "/bmssrcc/login.html";
+        return;
+      }
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`, {
+          headers: { Authorization: `token ${key}` }
+        });
+        if (!response.ok) {
+          window.location.href = "/bmssrcc/login.html";
+        }
+      } catch (err) {
+        window.location.href = "/bmssrcc/login.html";
+      }
+    }
+
+    function logout() {
+      document.cookie = "githubKey=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; SameSite=Strict";
+      window.location.href = "/bmssrcc/index.html";
+    }
+
+document.getElementById("updateForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const updateType = document.querySelector('input[name="updateType"]:checked').value;
+  const cubeType = document.getElementById("cubeType").value;
+  const memberName = document.getElementById("memberName").value;
+  const newTime = document.getElementById("newTime").value;
+  const token = getCookie("githubKey");
+  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/rankings-data.json`;
+
+  // …parseTime, customStringify, fetch file, update competitor, recalc ranks…
+
+
+      function parseTime(str) {
+        if (!str) return null;
+        if (/^\d+$/.test(str)) return parseInt(str, 10);
+        const parts = str.split(":");
+        if (parts.length === 1) return parseFloat(parts[0]);
+        if (parts.length === 2) return parseInt(parts[0]) * 60 + parseFloat(parts[1]);
+        if (parts.length === 3) return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseFloat(parts[2]);
+        return null;
+      }
+
+      function customStringify(obj) {
+        let result = '{\n  "unofficial": [\n';
+        obj.unofficial.forEach((ev, i) => {
+          result += '    {\n      "event": "' + ev.event + '",\n      "data": [\n';
+          ev.data.forEach((c, j) => {
+            result += '       {"rank": ' + c.rank + ', "name": "' + c.name + '", "single": "' + c.single + '", "average": "' + c.average + '"';
+            if (c.wcaId) result += ', "wcaId": "' + c.wcaId + '"';
+            result += '}';
+            if (j < ev.data.length - 1) result += ',\n';
+            else result += '\n';
+          });
+          result += '      ]\n    }';
+          if (i < obj.unofficial.length - 1) result += ',\n';
+          else result += '\n';
+        });
+        result += '  ],\n  "official": [\n';
+        obj.official.forEach((ev, i) => {
+          result += '    {\n      "event": "' + ev.event + '",\n      "data": [\n';
+          ev.data.forEach((c, j) => {
+            result += '       {"rank": ' + c.rank + ', "name": "' + c.name + '", "single": "' + c.single + '", "average": "' + c.average + '"';
+            if (c.wcaId) result += ', "wcaId": "' + c.wcaId + '"';
+            result += '}';
+            if (j < ev.data.length - 1) result += ',\n';
+            else result += '\n';
+          });
+          result += '      ]\n    }';
+          if (i < obj.official.length - 1) result += ',\n';
+          else result += '\n';
+        });
+        result += '  ]\n}';
+        return result;
+      }
+
+      try {
+        // Fetch current file
+        const response = await fetch(apiUrl, {
+          headers: { Authorization: `token ${token}` }
+        });
+        if (!response.ok) throw new Error("Failed to fetch file");
+        const fileData = await response.json();
+        const content = atob(fileData.content);
+        const json = JSON.parse(content);
+
+        // Find event block
+        let eventBlock = json.unofficial.find(ev => ev.event === cubeType);
+        if (!eventBlock) {
+          eventBlock = { event: cubeType, data: [] };
+          json.unofficial.push(eventBlock);
+        }
+
+        // Find competitor
+        let competitor = eventBlock.data.find(c => c.name === memberName);
+        if (competitor) {
+          if (updateType === "single") competitor.single = newTime;
+          if (updateType === "average") competitor.average = newTime;
+        } else {
+          let existingWcaId = "";
+          [json.unofficial, json.official].forEach(blocks => {
+            blocks.forEach(ev => {
+              ev.data.forEach(c => {
+                if (c.name === memberName && c.wcaId) {
+                  existingWcaId = c.wcaId;
+                }
+              });
+            });
+          });
+          competitor = {
+            rank: 0,
+            name: memberName,
+            single: updateType === "single" ? newTime : "",
+            average: updateType === "average" ? newTime : "",
+            wcaId: existingWcaId
+          };
+          eventBlock.data.push(competitor);
+        }
+
+        // Sanitize
+        eventBlock.data.forEach(c => {
+          if (typeof c.single === "undefined") c.single = "";
+          if (typeof c.average === "undefined") c.average = "";
+          if (typeof c.wcaId === "undefined") c.wcaId = "";
+        });
+
+        // Recalculate ranks
+        const withAvg = eventBlock.data.filter(c => c.average && c.average !== "");
+        const noAvg = eventBlock.data.filter(c => !c.average || c.average === "");
+        withAvg.sort((a, b) => parseTime(a.average) - parseTime(b.average));
+        noAvg.sort((a, b) => parseTime(a.single) - parseTime(b.single));
+        eventBlock.data = withAvg.concat(noAvg);
+        eventBlock.data.forEach((c, i) => { c.rank = i + 1; });
+
+        // Stringify and encode
+        const formattedJson = customStringify(json);
+        const newContent = btoa(formattedJson);
+
+        const payload = {
+          message: `Update ${memberName} ${cubeType} ${updateType} to ${newTime}`,
+          content: newContent,
+          sha: fileData.sha
+        };
+
+        const putResp = await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+            Authorization: `token ${token}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!putResp.ok) throw new Error("Failed to update file");
+        document.getElementById("updateMessage").textContent = "Update successful!";
+      } catch (err) {
+        document.getElementById("updateMessage").textContent = "Error: " + err.message;
+      }
+    });
+
+
+    checkAuth();
+  </script>
+</body>
+</html>
