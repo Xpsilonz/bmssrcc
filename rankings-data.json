@@ -82,7 +82,9 @@
       "event": "3x3x3OH",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "12.76", "average": "17.58", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "James Lin", "single": "32.09", "average": "37.94", "wcaId": "2025LINJ04"}
+        {"rank": 2, "name": "James Lin", "single": "32.09", "average": "37.94", "wcaId": "2025LINJ04"},
+        {"rank": 3, "name": "Harry Yu", "single": "50.61", "average": "", "wcaId": ""},
+        {"rank": 4, "name": "Yune Ham", "single": "56.9p", "average": "", "wcaId": ""}
       ]
     },
     {
