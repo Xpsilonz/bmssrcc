@@ -116,9 +116,10 @@
       "event": "Skewb",
       "data": [
         {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.59", "average": "1.35", "wcaId": "2022TANT01"},
-        {"rank": 2, "name": "Matthew Park", "single": "5.35", "average": "13.47", "wcaId": "2025PARK69"},
-        {"rank": 3, "name": "James Lin", "single": "10.22", "average": "16.26", "wcaId": "2025LINJ04"},
-        {"rank": 4, "name": "Yune Ham", "single": "12.21", "average": ""}
+        {"rank": 2, "name": "Harry Yu", "single": "6.83", "average": "9.83"}
+        {"rank": 3, "name": "Matthew Park", "single": "5.35", "average": "13.47", "wcaId": "2025PARK69"},
+        {"rank": 4, "name": "James Lin", "single": "10.22", "average": "16.26", "wcaId": "2025LINJ04"},
+        {"rank": 5, "name": "Yune Ham", "single": "12.21", "average": ""}
       ]
     },
     {
