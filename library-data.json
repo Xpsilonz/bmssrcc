@@ -10,8 +10,13 @@
   {"id": "10", "name": "QiYi Warrior M (James's Setup)", "type": "3x3x3"},
   {"id": "11", "name": "YJ MGC 6x6", "type": "6x6x6"},
   {"id": "12", "name": "Modded Shengshou Pyraminx", "type": "Pyraminx"},
-  {"id": "13", "name": "QiYi Bluetooth Timer", "type": "Timer"}
+  {"id": "13", "name": "QiYi Bluetooth Timer", "type": "Timer"},
+  {"id": "14", "name": "QiYi M Pro 2x2 Ball Core", "type": "2x2x2"},
+  {"id": "15", "name": "Moyu Aosu V7 Single Track 96magnets", "type": "4x4x4"},
+  {"id": "16", "name": "Moyu Weilong V11 (8magnets Ball Core UV)", "type": "3x3x3"},
+  {"id": "17", "name": "Sengso Magnetic Clock V2", "type": "Clock"}
 ]
+
 
 
 
