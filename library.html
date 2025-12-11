@@ -394,31 +394,10 @@
             }
         });
         
-       let currentUser = null;
+        let currentUser = null;
 
-        window.auth.onAuthStateChanged(async (user) => {
-            currentUser = user;
-            if (user) {
-                console.log('User logged in:', user.email);
-                document.getElementById('admin-panel').classList.add('show');
-                document.getElementById('logout-btn').style.display = 'inline';
-                document.getElementById('login-form').style.display = 'none';
-                document.getElementById('admin-login-btn').style.display = 'none';
-                showMessage('Admin logged in successfully!');
-                
-                await loadLibrary();
-            } else {
-                console.log('No user logged in');
-                document.getElementById('admin-panel').classList.remove('show');
-                document.getElementById('logout-btn').style.display = 'none';
-                document.getElementById('admin-login-btn').style.display = 'inline';
-                document.getElementById('login-form').style.display = 'none';
-                
-                await loadLibrary();
-            }
-        });
-    
         function showMessage(message, type = 'success') {
+            // Remove existing messages
             const existingMessage = document.querySelector('.message');
             if (existingMessage) existingMessage.remove();
             
@@ -431,69 +410,38 @@
                 messageDiv.remove();
             }, 5000);
         }
-    
+
         async function loadLibrary() {
             try {
-                console.log('Loading library data...');
                 const response = await fetch('library-data.json');
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch library data: ${response.status}`);
-                }
-                
                 const items = await response.json();
-                console.log('Library items:', items);
-                
                 const tbody = document.getElementById('library-tbody');
                 tbody.innerHTML = '';
                 
                 for (const item of items) {
-                    try {
-                        const borrowDoc = await getDoc(doc(window.db, 'borrows', item.id));
-                        const isBorrowed = borrowDoc.exists();
-                        const row = tbody.insertRow();
-                        
-                        row.insertCell().textContent = item.id;
-                        
-                        row.insertCell().textContent = item.name;
-                        
-                        row.insertCell().textContent = item.type;
-                        
-                        // Status
-                        if (isBorrowed) {
-                            try {
-                                const data = borrowDoc.data();
-                                const dueDate = new Date(data.dueDate);
-                                row.insertCell().textContent = `Borrowed by ${data.name} (Due: ${dueDate.toLocaleDateString()})`;
-                            } catch (dateError) {
-                                row.insertCell().textContent = 'Borrowed (Date error)';
-                            }
-                            row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
-                        } else {
-                            row.insertCell().textContent = 'Available';
-                            const borrowBtn = document.createElement('button');
-                            borrowBtn.className = 'borrow-btn';
-                            borrowBtn.textContent = 'Borrow';
-                            borrowBtn.onclick = () => showBorrowForm(item.id, row);
-                            row.insertCell().appendChild(borrowBtn);
-                        }
-                    } catch (itemError) {
-                        console.error(`Error processing item ${item.id}:`, itemError);
-                        const row = tbody.insertRow();
-                        row.insertCell().textContent = item.id;
-                        row.insertCell().textContent = item.name;
-                        row.insertCell().textContent = item.type;
-                        row.insertCell().textContent = 'Error loading status';
-                        row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Error</button>';
+                    const borrowDoc = await getDoc(doc(window.db, 'borrows', item.id));
+                    const isBorrowed = borrowDoc.exists();
+                    const row = tbody.insertRow();
+                    row.insertCell().textContent = item.id;
+                    row.insertCell().textContent = item.name;
+                    row.insertCell().textContent = item.type;
+                    
+                    if (isBorrowed) {
+                        const data = borrowDoc.data();
+                        row.insertCell().textContent = `Borrowed by ${data.name} until ${new Date(data.dueDate).toLocaleDateString()}`;
+                        row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
+                    } else {
+                        row.insertCell().textContent = 'Available';
+                        const borrowBtn = document.createElement('button');
+                        borrowBtn.className = 'borrow-btn';
+                        borrowBtn.textContent = 'Borrow';
+                        borrowBtn.onclick = () => showBorrowForm(item.id, row);
+                        row.insertCell().appendChild(borrowBtn);
                     }
                 }
             } catch (error) {
                 console.error('Error loading library data:', error);
-                showMessage('Error loading library data. Please refresh the page.', 'error');
-                
-                // Show error in table
-                const tbody = document.getElementById('library-tbody');
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red;">Error loading data: ${error.message}</td></tr>`;
+                showMessage('Error loading library data. Please try again.', 'error');
             }
         }
         
@@ -514,6 +462,7 @@
             `;
             row.appendChild(form);
             
+            // Scroll to form for better mobile experience
             form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
             document.getElementById(`borrow-form-${itemId}`).onsubmit = async (e) => {
@@ -524,6 +473,7 @@
                 
                 submitBtn.textContent = 'Processing...';
                 submitBtn.disabled = true;
+                form.classList.add('loading');
                 
                 try {
                     const formData = new FormData(form);
@@ -532,32 +482,24 @@
                     const dueDate = new Date();
                     dueDate.setDate(dueDate.getDate() + 7);
                     
-                    console.log('Attempting to borrow item:', itemId);
-                    
-                    // Check if item is still available
-                    const borrowDoc = await getDoc(doc(window.db, 'borrows', itemId));
-                    if (borrowDoc.exists()) {
-                        throw new Error('Item is no longer available. Please refresh the page.');
-                    }
-                    
                     await setDoc(doc(window.db, 'borrows', itemId), { 
                         name, 
                         studentId, 
                         dueDate: dueDate.toISOString(),
-                        borrowedAt: new Date().toISOString(),
-                        itemId: itemId
+                        borrowedAt: new Date().toISOString()
                     });
                     
                     showMessage(`Successfully borrowed item ${itemId}! Due date: ${dueDate.toLocaleDateString()}`);
                     await loadLibrary();
-                    
+                    form.remove();
                 } catch (error) {
                     console.error('Error borrowing item:', error);
-                    showMessage(`Error: ${error.message}`, 'error');
-                } finally {
+                    showMessage('Error borrowing item. Please try again.', 'error');
+                    
+                    // Reset button state
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-                    form.remove();
+                    form.classList.remove('loading');
                 }
             };
         }
@@ -579,35 +521,20 @@
                 return;
             }
             
+            // Show loading state
             loginBtn.textContent = 'Logging in...';
             loginBtn.disabled = true;
             
             try {
-                console.log('Attempting login...');
                 await signInWithEmailAndPassword(window.auth, email, password);
+                currentUser = window.auth.currentUser;
+                document.getElementById('admin-panel').classList.add('show');
+                document.getElementById('logout-btn').style.display = 'inline';
+                document.getElementById('login-form').style.display = 'none';
+                showMessage('Admin login successful!');
             } catch (error) {
                 console.error('Login error:', error);
-                let errorMessage = 'Login failed. ';
-                
-                switch (error.code) {
-                    case 'auth/user-not-found':
-                    case 'auth/wrong-password':
-                        errorMessage += 'Invalid email or password.';
-                        break;
-                    case 'auth/invalid-email':
-                        errorMessage += 'Invalid email format.';
-                        break;
-                    case 'auth/user-disabled':
-                        errorMessage += 'Account has been disabled.';
-                        break;
-                    case 'auth/too-many-requests':
-                        errorMessage += 'Too many attempts. Please try again later.';
-                        break;
-                    default:
-                        errorMessage += 'Please check your credentials and try again.';
-                }
-                
-                showMessage(errorMessage, 'error');
+                showMessage('Login failed: ' + error.message, 'error');
                 
                 // Reset button
                 loginBtn.textContent = originalText;
@@ -618,6 +545,11 @@
         document.getElementById('logout-btn').onclick = async () => {
             try {
                 await signOut(window.auth);
+                currentUser = null;
+                document.getElementById('admin-panel').classList.remove('show');
+                document.getElementById('logout-btn').style.display = 'none';
+                document.getElementById('admin-login-btn').style.display = 'inline';
+                document.getElementById('login-form').style.display = 'none';
                 showMessage('Logged out successfully');
             } catch (error) {
                 console.error('Logout error:', error);
@@ -635,6 +567,7 @@
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
+            // Show loading state
             submitBtn.textContent = 'Processing...';
             submitBtn.disabled = true;
             
@@ -643,11 +576,6 @@
                 const itemId = formData.get('itemId');
                 const name = formData.get('name');
                 const studentId = formData.get('studentId');
-                
-                if (!itemId) {
-                    throw new Error('Item ID is required');
-                }
-                
                 const dueDate = new Date();
                 dueDate.setDate(dueDate.getDate() + 7);
                 
@@ -655,19 +583,19 @@
                     name, 
                     studentId, 
                     dueDate: dueDate.toISOString(),
-                    borrowedAt: new Date().toISOString(),
-                    itemId: itemId,
-                    adminEdited: true
+                    borrowedAt: new Date().toISOString()
                 });
                 
                 showMessage(`Item ${itemId} borrow updated successfully!`);
                 await loadLibrary();
                 
+                // Reset form
                 e.target.reset();
             } catch (error) {
                 console.error('Admin form error:', error);
-                showMessage(`Error: ${error.message}`, 'error');
+                showMessage('Error updating borrow: ' + error.message, 'error');
             } finally {
+                // Reset button
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
@@ -688,31 +616,28 @@
                 return;
             }
             
+            // Show loading state
             removeBtn.textContent = 'Removing...';
             removeBtn.disabled = true;
             
             try {
-                const borrowDoc = await getDoc(doc(window.db, 'borrows', itemId));
-                if (!borrowDoc.exists()) {
-                    throw new Error(`Item ${itemId} is not currently borrowed.`);
-                }
-                
                 await deleteDoc(doc(window.db, 'borrows', itemId));
                 showMessage(`Item ${itemId} borrow removed successfully!`);
                 await loadLibrary();
                 
+                // Reset form
                 document.getElementById('admin-form').reset();
             } catch (error) {
                 console.error('Remove error:', error);
-                showMessage(`Error: ${error.message}`, 'error');
+                showMessage('Error removing borrow: ' + error.message, 'error');
             } finally {
+                // Reset button
                 removeBtn.textContent = originalText;
                 removeBtn.disabled = false;
             }
         };
+        
         window.onload = loadLibrary;
     </script>
 </body>
 </html>
-
-
