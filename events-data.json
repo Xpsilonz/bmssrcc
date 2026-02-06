@@ -1,9 +1,9 @@
 [
    {
     "name": "General Meeting",
-    "date": "2025-11-27",
-    "time": "11:19 AM - 12:04 PM",
-    "location": "BMSS Room 220",
+    "date": "2025-02-09",
+    "time": "11:35 AM - 12:20 PM",
+    "location": "BMSS Room 113",
     "description": "We'll just chill and hang out."
   },
   {
@@ -14,18 +14,18 @@
     "description": "We'll have a workshop especially for beginner to learn how to solve a 3x3x3 Rubik's Cube!\nOnly 25 spots available! Sign Up: https://forms.office.com/r/RGb9qKYpb8"
   },
   {
-    "name": "Victoria Winter 2026",
-    "date": "2026-01-04",
-    "time": "9:15 AM - 5:50 PM",
-    "location": "Victoria, Victoria Edelweiss Club, Address: 108 Niagara St. V8V 1E9",
-    "description": "Official WCA competition (3x3, 2x2, 4x4, and 5x5) Competitors Limit:80\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/VictoriaWinter2026/register"
-  },
-  {
     "name": "Burnaby Winter 2026",
     "date": "2026-02-26",
     "time": "9:00 AM - 6:40 PM",
     "location": "Burnaby, Bonson Recreation Complex, Address: 6550 Bonsor Ave. V5H 3G4",
     "description": "Official WCA competition (3x3, 2x2, 4x4, and 5x5) Competitors Limit:80\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/BurnabyWinter2026/register"
+  },
+  {
+    "name": "Spring Breeze in Burnaby 2026",
+    "date": "2026-05-02",
+    "time": "9:00 AM - 6:40 PM",
+    "location": "Burnaby, Bonson Recreation Complex, Address: 6550 Bonsor Ave. V5H 3G4",
+    "description": "Official WCA competition (3x3, 2x2, 3x3OH, Skewb, and Clock) Competitors Limit:80\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/SpringBreezeinBurnaby2026/register"
   },
   {
      "name": "BC Championship 2026",
@@ -36,6 +36,7 @@
      "description": "Official WCA competition For BC Champion Title (All Events) Competitors Limit:230 Prices: $105\nSign Up (WCA account required): https://www.worldcubeassociation.org/competitions/BCChampionship2026/register"
   }
 ]
+
 
 
 
