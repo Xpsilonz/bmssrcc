@@ -7,7 +7,7 @@
   {"rank": 2, "name": "James Lin", "single": "8.21", "average": "11.81", "wcaId": "2025LINJ04"},
   {"rank": 3, "name": "Matthew Park", "single": "11.59", "average": "14.04", "wcaId": "2025PARK69"},
   {"rank": 4, "name": "Harry Yu", "single": "11.61", "average": "15.35"},
-  {"rank": 5, "name": "Yune Ham", "single": "16.00", "average": "19.36"},
+  {"rank": 5, "name": "Yune Ham", "single": "15.43", "average": "19.36"},
   {"rank": 6, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
   {"rank": 7, "name": "Ethan Shi", "single": "22.76", "average": "27.88"},
   {"rank": 8, "name": "Siddhant Bairwa", "single": "35.08", "average": "39.05"},
@@ -120,7 +120,7 @@
  "event": "Skewb",
  "data": [
   {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.59", "average": "1.35", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Matthew Park", "single": "3.88", "average": "6.85", "wcaId": "2025PARK69"},
+  {"rank": 2, "name": "Matthew Park", "single": "3.88", "average": "5.95", "wcaId": "2025PARK69"},
   {"rank": 3, "name": "Harry Yu", "single": "3.97", "average": "7.48"},
   {"rank": 4, "name": "James Lin", "single": "10.22", "average": "16.26", "wcaId": "2025LINJ04"},
   {"rank": 5, "name": "Yune Ham", "single": "12.21", "average": ""}
