@@ -439,9 +439,14 @@
                     }
                     
                     allResults.sort((a, b) => {
-                        if (a.single === 0) return 1;
-                        if (b.single === 0) return -1;
-                        return a.single - b.single;
+                        if (a.average === 0 && b.average === 0) {
+                            if (a.single === 0) return 1;
+                            if (b.single === 0) return -1;
+                            return a.single - b.single;
+                        }
+                        if (a.average === 0) return 1;
+                        if (b.average === 0) return -1;
+                        return a.average - b.average;
                     });
                     
                     tbody.innerHTML = '';
