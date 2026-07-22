@@ -419,15 +419,29 @@
                 tbody.innerHTML = '';
                 
                 for (const item of items) {
-                    const borrowDoc = await getDoc(doc(window.db, 'borrows', item.id));
-                    const isBorrowed = borrowDoc.exists();
+                    const borrowRef = doc(window.db, 'borrows', item.id);
+                    const borrowDoc = await getDoc(borrowRef);
+                    let isBorrowed = borrowDoc.exists();
+                    let data = isBorrowed ? borrowDoc.data() : null;
+
+                    // AUTO-EXPIRE: if the borrowing period (1 week) is over, free the item
+                    // back up automatically so the next person can borrow it.
+                    if (isBorrowed && new Date(data.dueDate).getTime() <= Date.now()) {
+                        try {
+                            await deleteDoc(borrowRef);
+                        } catch (cleanupError) {
+                            console.error(`Could not clear expired borrow for ${item.id}:`, cleanupError);
+                        }
+                        isBorrowed = false;
+                        data = null;
+                    }
+
                     const row = tbody.insertRow();
                     row.insertCell().textContent = item.id;
                     row.insertCell().textContent = item.name;
                     row.insertCell().textContent = item.type;
                     
                     if (isBorrowed) {
-                        const data = borrowDoc.data();
                         row.insertCell().textContent = `Borrowed by ${data.name} until ${new Date(data.dueDate).toLocaleDateString()}`;
                         row.insertCell().innerHTML = '<button class="borrow-btn" disabled>Not Available</button>';
                     } else {
@@ -486,7 +500,8 @@
                         name, 
                         studentId, 
                         dueDate: dueDate.toISOString(),
-                        borrowedAt: new Date().toISOString()
+                        borrowedAt: new Date().toISOString(),
+                        reminderSent: false
                     });
                     
                     showMessage(`Successfully borrowed item ${itemId}! Due date: ${dueDate.toLocaleDateString()}`);
@@ -583,7 +598,8 @@
                     name, 
                     studentId, 
                     dueDate: dueDate.toISOString(),
-                    borrowedAt: new Date().toISOString()
+                    borrowedAt: new Date().toISOString(),
+                    reminderSent: false
                 });
                 
                 showMessage(`Item ${itemId} borrow updated successfully!`);
