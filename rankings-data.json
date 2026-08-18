@@ -135,6 +135,12 @@
   {"rank": 2, "name": "Matthew Park", "single": "22.68", "average": "34.60", "wcaId": "2025PARK69"},
   {"rank": 3, "name": "James Lin", "single": "1:24.53", "average": "", "wcaId": "2025LINJ04"}
  ]
+ },
+ {
+  "event": "FTO",
+  "data": [
+   {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "25.43", "average": "29.41", "wcaId": "2022TANT01"}
+  ]
  }
  ]
 }
