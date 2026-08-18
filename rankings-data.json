@@ -137,10 +137,10 @@
  ]
  },
  {
-  "event": "FTO",
-  "data": [
-   {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "25.43", "average": "29.41", "wcaId": "2022TANT01"}
-  ]
+ "event": "FTO",
+ "data": [
+  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "25.43", "average": "29.41", "wcaId": "2022TANT01"}
+ ]
  }
  ]
 }
