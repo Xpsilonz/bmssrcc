@@ -1,146 +1,511 @@
 {
- "unofficial": [
- {
- "event": "3x3x3",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "4.15", "average": "8.16", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "James Lin", "single": "6.08", "average": "11.81", "wcaId": "2025LINJ04"},
-  {"rank": 3, "name": "Matthew Park", "single": "11.59", "average": "12.98", "wcaId": "2025PARK69"},
-  {"rank": 4, "name": "Harry Yu", "single": "11.61", "average": "15.35"},
-  {"rank": 5, "name": "Yune Ham", "single": "12.22", "average": "16.92"},
-  {"rank": 6, "name": "Steven Song", "single": "16.00", "average": "19.83"},
-  {"rank": 7, "name": "Onew Kim", "single": "16.39", "average": "19.88"},
-  {"rank": 8, "name": "Ayush Shete", "single": "14.59", "average": "21.77"},
-  {"rank": 9, "name": "Ethan Shi", "single": "22.76", "average": "27.88"},
-  {"rank": 10, "name": "Mr. Leung", "single": "22.00", "average": "38.33"},
-  {"rank": 11, "name": "Siddhant Bairwa", "single": "28.38", "average": "39.05"},
-  {"rank": 12, "name": "Sunny Phan", "single": "31.93", "average": "43.53"},
-  {"rank": 13, "name": "Markus Palkoci", "single": "37.80", "average": "49.10"},
-  {"rank": 14, "name": "Hugo Akesson", "single": "47.25", "average": "50.23"},
-  {"rank": 15, "name": "Mason Kwok", "single": "45.31", "average": "55.45"},
-  {"rank": 16, "name": "Priya Raghu", "single": "59.53", "average": "1:14.34"},
-  {"rank": 17, "name": "Tristan Ng", "single": "24.67", "average": ""},
-  {"rank": 18, "name": "Mathis Tsang", "single": "30.85", "average": ""},
-  {"rank": 19, "name": "Abtin Kha", "single": "55.85", "average": ""},
-  {"rank": 20, "name": "Zachary Ou", "single": "58.43", "average": ""},
-  {"rank": 21, "name": "Sean Leong", "single": "59.69", "average": ""},
-  {"rank": 22, "name": "Ian Park", "single": "1:01.22", "average": ""},
-  {"rank": 23, "name": "Justin Tian", "single": "1:03.00", "average": ""},
-  {"rank": 24, "name": "Turanyu Bairwa", "single": "1:25.00", "average": ""},
-  {"rank": 25, "name": "Jay Huang", "single": "1:38.05", "average": ""},
-  {"rank": 26, "name": "Daebum Yoon", "single": "1:58.12", "average": ""},
-  {"rank": 27, "name": "Liam Senjack", "single": "4:00.67", "average": ""}
- ]
- },
- {
- "event": "2x2x2",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.74", "average": "2.55", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "James Lin", "single": "2.18", "average": "3.46", "wcaId": "2025LINJ04"},
-  {"rank": 3, "name": "Matthew Park", "single": "0.94", "average": "3.74", "wcaId": "2025PARK69"},
-  {"rank": 4, "name": "Harry Yu", "single": "3.33", "average": "4.04"},
-  {"rank": 5, "name": "Yune Ham", "single": "6.49", "average": "17.42"}
- ]
- },
- {
- "event": "4x4x4",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "33.14", "average": "39.37", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "James Lin", "single": "54.34", "average": "1:04.33", "wcaId": "2025LINJ04"},
-  {"rank": 3, "name": "Matthew Park", "single": "1:43.30", "average": "1:48.67", "wcaId": "2025PARK69"},
-  {"rank": 4, "name": "Yune Ham", "single": "2:12.84", "average": ""}
- ]
- },
- {
- "event": "5x5x5",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "1:17.31", "average": "1:25.92", "wcaId": "2022TANT01"}
- ]
- },
- {
- "event": "6x6x6",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2:42.16", "average": "3:03.04", "wcaId": "2022TANT01"}
- ]
- },
- {
- "event": "7x7x7",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "4:16.97", "average": "5:53.85", "wcaId": "2022TANT01"}
- ]
- },
- {
- "event": "3x3x3BLD",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "3:18.49", "average": "5:45.55", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Harry Yu", "single": "8:20.15", "average": ""}
- ]
- },
- {
- "event": "FMC",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "29", "average": "38.66", "wcaId": "2022TANT01"}
- ]
- },
- {
- "event": "3x3x3OH",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "12.76", "average": "17.58", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "James Lin", "single": "32.09", "average": "37.94", "wcaId": "2025LINJ04"},
-  {"rank": 3, "name": "Matthew Park", "single": "29.65", "average": "48.00"},
-  {"rank": 4, "name": "Yune Ham", "single": "30.45", "average": "51.80"},
-  {"rank": 5, "name": "Harry Yu", "single": "50.61", "average": ""}
- ]
- },
- {
- "event": "Clock",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "2.81", "average": "4.81", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Priya Raghu", "single": "13.44", "average": "15.98", "wcaId": "2025RAGH05"},
-  {"rank": 3, "name": "Matthew Park", "single": "11.93", "average": "16.60", "wcaId": "2025PARK69"},
-  {"rank": 4, "name": "Siddhant Bairwa", "single": "37.90", "average": "43.73"},
-  {"rank": 5, "name": "James Lin", "single": "1:08.44", "average": "", "wcaId": "2025LINJ04"}
- ]
- },
- {
- "event": "Megaminx",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "51.07", "average": "59.81", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Yune Ham", "single": "6:40.62", "average": ""},
-  {"rank": 3, "name": "Abtin Kha", "single": "8:08.25", "average": ""}
- ]
- },
- {
- "event": "Pyraminx",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.61", "average": "1.51", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "James Lin", "single": "9.38", "average": "14.08", "wcaId": "2025LINJ04"},
-  {"rank": 3, "name": "Siddhant Bairwa", "single": "29.96", "average": "32.32"}
- ]
- },
- {
- "event": "Skewb",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "0.59", "average": "1.35", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Matthew Park", "single": "3.88", "average": "5.95", "wcaId": "2025PARK69"},
-  {"rank": 3, "name": "Harry Yu", "single": "3.97", "average": "7.48"},
-  {"rank": 4, "name": "James Lin", "single": "10.22", "average": "16.26", "wcaId": "2025LINJ04"},
-  {"rank": 5, "name": "Yune Ham", "single": "12.21", "average": ""}
- ]
- },
- {
- "event": "Square-1",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "7.08", "average": "11.60", "wcaId": "2022TANT01"},
-  {"rank": 2, "name": "Matthew Park", "single": "22.68", "average": "34.60", "wcaId": "2025PARK69"},
-  {"rank": 3, "name": "James Lin", "single": "1:24.53", "average": "", "wcaId": "2025LINJ04"}
- ]
- },
- {
- "event": "FTO",
- "data": [
-  {"rank": 1, "name": "Tonnam Tantikamnerdkul", "single": "18.35", "average": "23.20", "wcaId": "2022TANT01"}
- ]
- }
- ]
+  "unofficial": [
+    {
+      "event": "3x3x3",
+      "data": [
+        {
+          "name": "James Lin",
+          "single": "6.08",
+          "average": 8.15,
+          "wcaId": "2025LINJ04",
+          "rank": 1
+        },
+        {
+          "rank": 2,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "4.15",
+          "average": "8.16",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 3,
+          "name": "Matthew Park",
+          "single": "11.59",
+          "average": "12.98",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 4,
+          "name": "Harry Yu",
+          "single": "11.61",
+          "average": "15.35"
+        },
+        {
+          "rank": 5,
+          "name": "Yune Ham",
+          "single": "12.22",
+          "average": "16.92"
+        },
+        {
+          "rank": 6,
+          "name": "Steven Song",
+          "single": "16.00",
+          "average": "19.83"
+        },
+        {
+          "rank": 7,
+          "name": "Onew Kim",
+          "single": "16.39",
+          "average": "19.88"
+        },
+        {
+          "rank": 8,
+          "name": "Ayush Shete",
+          "single": "14.59",
+          "average": "21.77"
+        },
+        {
+          "rank": 9,
+          "name": "Ethan Shi",
+          "single": "22.76",
+          "average": "27.88"
+        },
+        {
+          "rank": 10,
+          "name": "Mr. Leung",
+          "single": "22.00",
+          "average": "38.33"
+        },
+        {
+          "rank": 11,
+          "name": "Siddhant Bairwa",
+          "single": "28.38",
+          "average": "39.05"
+        },
+        {
+          "rank": 12,
+          "name": "Sunny Phan",
+          "single": "31.93",
+          "average": "43.53"
+        },
+        {
+          "rank": 13,
+          "name": "Markus Palkoci",
+          "single": "37.80",
+          "average": "49.10"
+        },
+        {
+          "rank": 14,
+          "name": "Hugo Akesson",
+          "single": "47.25",
+          "average": "50.23"
+        },
+        {
+          "rank": 15,
+          "name": "Mason Kwok",
+          "single": "45.31",
+          "average": "55.45"
+        },
+        {
+          "rank": 16,
+          "name": "Priya Raghu",
+          "single": "59.53",
+          "average": "1:14.34"
+        },
+        {
+          "rank": 17,
+          "name": "Tristan Ng",
+          "single": "24.67",
+          "average": ""
+        },
+        {
+          "rank": 18,
+          "name": "Mathis Tsang",
+          "single": "30.85",
+          "average": ""
+        },
+        {
+          "rank": 19,
+          "name": "Abtin Kha",
+          "single": "55.85",
+          "average": ""
+        },
+        {
+          "rank": 20,
+          "name": "Zachary Ou",
+          "single": "58.43",
+          "average": ""
+        },
+        {
+          "rank": 21,
+          "name": "Sean Leong",
+          "single": "59.69",
+          "average": ""
+        },
+        {
+          "rank": 22,
+          "name": "Ian Park",
+          "single": "1:01.22",
+          "average": ""
+        },
+        {
+          "rank": 23,
+          "name": "Justin Tian",
+          "single": "1:03.00",
+          "average": ""
+        },
+        {
+          "rank": 24,
+          "name": "Turanyu Bairwa",
+          "single": "1:25.00",
+          "average": ""
+        },
+        {
+          "rank": 25,
+          "name": "Jay Huang",
+          "single": "1:38.05",
+          "average": ""
+        },
+        {
+          "rank": 26,
+          "name": "Daebum Yoon",
+          "single": "1:58.12",
+          "average": ""
+        },
+        {
+          "rank": 27,
+          "name": "Liam Senjack",
+          "single": "4:00.67",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "2x2x2",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "0.74",
+          "average": "2.55",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "James Lin",
+          "single": "2.18",
+          "average": "3.46",
+          "wcaId": "2025LINJ04"
+        },
+        {
+          "rank": 3,
+          "name": "Matthew Park",
+          "single": "0.94",
+          "average": "3.74",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 4,
+          "name": "Harry Yu",
+          "single": "3.33",
+          "average": "4.04"
+        },
+        {
+          "rank": 5,
+          "name": "Yune Ham",
+          "single": "6.49",
+          "average": "17.42"
+        }
+      ]
+    },
+    {
+      "event": "4x4x4",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "33.14",
+          "average": "39.37",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "James Lin",
+          "single": "54.34",
+          "average": "1:04.33",
+          "wcaId": "2025LINJ04"
+        },
+        {
+          "rank": 3,
+          "name": "Matthew Park",
+          "single": "1:43.30",
+          "average": "1:48.67",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 4,
+          "name": "Yune Ham",
+          "single": "2:12.84",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "5x5x5",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "1:17.31",
+          "average": "1:25.92",
+          "wcaId": "2022TANT01"
+        }
+      ]
+    },
+    {
+      "event": "6x6x6",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "2:42.16",
+          "average": "3:03.04",
+          "wcaId": "2022TANT01"
+        }
+      ]
+    },
+    {
+      "event": "7x7x7",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "4:16.97",
+          "average": "5:53.85",
+          "wcaId": "2022TANT01"
+        }
+      ]
+    },
+    {
+      "event": "3x3x3BLD",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "3:18.49",
+          "average": "5:45.55",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "Harry Yu",
+          "single": "8:20.15",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "FMC",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "29",
+          "average": "38.66",
+          "wcaId": "2022TANT01"
+        }
+      ]
+    },
+    {
+      "event": "3x3x3OH",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "12.76",
+          "average": "17.58",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "James Lin",
+          "single": "32.09",
+          "average": "37.94",
+          "wcaId": "2025LINJ04"
+        },
+        {
+          "rank": 3,
+          "name": "Matthew Park",
+          "single": "29.65",
+          "average": "48.00"
+        },
+        {
+          "rank": 4,
+          "name": "Yune Ham",
+          "single": "30.45",
+          "average": "51.80"
+        },
+        {
+          "rank": 5,
+          "name": "Harry Yu",
+          "single": "50.61",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "Clock",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "2.81",
+          "average": "4.81",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "Priya Raghu",
+          "single": "13.44",
+          "average": "15.98",
+          "wcaId": "2025RAGH05"
+        },
+        {
+          "rank": 3,
+          "name": "Matthew Park",
+          "single": "11.93",
+          "average": "16.60",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 4,
+          "name": "Siddhant Bairwa",
+          "single": "37.90",
+          "average": "43.73"
+        },
+        {
+          "rank": 5,
+          "name": "James Lin",
+          "single": "1:08.44",
+          "average": "",
+          "wcaId": "2025LINJ04"
+        }
+      ]
+    },
+    {
+      "event": "Megaminx",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "51.07",
+          "average": "59.81",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "Yune Ham",
+          "single": "6:40.62",
+          "average": ""
+        },
+        {
+          "rank": 3,
+          "name": "Abtin Kha",
+          "single": "8:08.25",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "Pyraminx",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "0.61",
+          "average": "1.51",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "James Lin",
+          "single": "9.38",
+          "average": "14.08",
+          "wcaId": "2025LINJ04"
+        },
+        {
+          "rank": 3,
+          "name": "Siddhant Bairwa",
+          "single": "29.96",
+          "average": "32.32"
+        }
+      ]
+    },
+    {
+      "event": "Skewb",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "0.59",
+          "average": "1.35",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "Matthew Park",
+          "single": "3.88",
+          "average": "5.95",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 3,
+          "name": "Harry Yu",
+          "single": "3.97",
+          "average": "7.48"
+        },
+        {
+          "rank": 4,
+          "name": "James Lin",
+          "single": "10.22",
+          "average": "16.26",
+          "wcaId": "2025LINJ04"
+        },
+        {
+          "rank": 5,
+          "name": "Yune Ham",
+          "single": "12.21",
+          "average": ""
+        }
+      ]
+    },
+    {
+      "event": "Square-1",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "7.08",
+          "average": "11.60",
+          "wcaId": "2022TANT01"
+        },
+        {
+          "rank": 2,
+          "name": "Matthew Park",
+          "single": "22.68",
+          "average": "34.60",
+          "wcaId": "2025PARK69"
+        },
+        {
+          "rank": 3,
+          "name": "James Lin",
+          "single": "1:24.53",
+          "average": "",
+          "wcaId": "2025LINJ04"
+        }
+      ]
+    },
+    {
+      "event": "FTO",
+      "data": [
+        {
+          "rank": 1,
+          "name": "Tonnam Tantikamnerdkul",
+          "single": "18.35",
+          "average": "23.20",
+          "wcaId": "2022TANT01"
+        }
+      ]
+    }
+  ]
 }
