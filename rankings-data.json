@@ -4,18 +4,18 @@
       "event": "3x3x3",
       "data": [
         {
-          "name": "James Lin",
-          "single": "6.08",
-          "average": 8.15,
-          "wcaId": "2025LINJ04",
-          "rank": 1
-        },
-        {
-          "rank": 2,
+          "rank": 1,
           "name": "Tonnam Tantikamnerdkul",
           "single": "4.15",
           "average": "8.16",
           "wcaId": "2022TANT01"
+        },
+        {
+          "name": "James Lin",
+          "single": "6.08",
+          "average": 11.81,
+          "wcaId": "2025LINJ04",
+          "rank": 2
         },
         {
           "rank": 3,
