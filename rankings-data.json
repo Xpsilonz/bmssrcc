@@ -324,16 +324,16 @@
           "wcaId": "2025LINJ04"
         },
         {
-          "rank": 3,
+          "name": "Yune Ham",
+          "single": 29.75,
+          "average": 38.91,
+          "rank": 3
+        },
+        {
+          "rank": 4,
           "name": "Matthew Park",
           "single": "29.65",
           "average": "48.00"
-        },
-        {
-          "name": "Yune Ham",
-          "single": 29.75,
-          "average": "51.80",
-          "rank": 4
         },
         {
           "rank": 5,
