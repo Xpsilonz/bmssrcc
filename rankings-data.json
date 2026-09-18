@@ -31,10 +31,10 @@
           "average": "15.35"
         },
         {
-          "rank": 5,
           "name": "Yune Ham",
           "single": "12.22",
-          "average": "16.92"
+          "average": 16.65,
+          "rank": 5
         },
         {
           "name": "Onew Kim",
