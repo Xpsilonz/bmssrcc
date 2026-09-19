@@ -317,17 +317,17 @@
           "wcaId": "2022TANT01"
         },
         {
-          "rank": 2,
+          "name": "Matthew Park",
+          "single": 25.34,
+          "average": 34.96,
+          "rank": 2
+        },
+        {
+          "rank": 3,
           "name": "James Lin",
           "single": "32.09",
           "average": "37.94",
           "wcaId": "2025LINJ04"
-        },
-        {
-          "name": "Matthew Park",
-          "single": 25.34,
-          "average": 38.87,
-          "rank": 3
         },
         {
           "name": "Yune Ham",
