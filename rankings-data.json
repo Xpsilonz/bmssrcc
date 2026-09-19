@@ -330,10 +330,10 @@
           "rank": 3
         },
         {
-          "rank": 4,
           "name": "Matthew Park",
-          "single": "29.65",
-          "average": "48.00"
+          "single": 25.34,
+          "average": "48.00",
+          "rank": 4
         },
         {
           "rank": 5,
