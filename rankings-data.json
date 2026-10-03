@@ -355,18 +355,18 @@
           "wcaId": "2022TANT01"
         },
         {
-          "rank": 2,
+          "name": "Matthew Park",
+          "single": "11.93",
+          "average": 15.43,
+          "wcaId": "2025PARK69",
+          "rank": 2
+        },
+        {
+          "rank": 3,
           "name": "Priya Raghu",
           "single": "13.44",
           "average": "15.98",
           "wcaId": "2025RAGH05"
-        },
-        {
-          "rank": 3,
-          "name": "Matthew Park",
-          "single": "11.93",
-          "average": "16.60",
-          "wcaId": "2025PARK69"
         },
         {
           "rank": 4,
