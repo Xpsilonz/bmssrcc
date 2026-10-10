@@ -37,16 +37,17 @@
           "average": "15.35"
         },
         {
-          "name": "Onew Kim",
-          "single": "16.39",
-          "average": 19.81,
+          "name": "Steven Song",
+          "single": "16.00",
+          "average": 18.69,
+          "wcaId": "",
           "rank": 6
         },
         {
-          "rank": 7,
-          "name": "Steven Song",
-          "single": "16.00",
-          "average": "19.83"
+          "name": "Onew Kim",
+          "single": "16.39",
+          "average": 19.81,
+          "rank": 7
         },
         {
           "rank": 8,
