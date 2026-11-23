@@ -25,24 +25,24 @@
           "rank": 3
         },
         {
-          "name": "Yune Ham",
-          "single": 11.03,
-          "average": 15.11,
+          "name": "Steven Song",
+          "single": 12.77,
+          "average": 14.66,
           "wcaId": "",
           "rank": 4
         },
         {
-          "rank": 5,
+          "name": "Yune Ham",
+          "single": 11.03,
+          "average": 15.11,
+          "wcaId": "",
+          "rank": 5
+        },
+        {
+          "rank": 6,
           "name": "Harry Yu",
           "single": "11.61",
           "average": "15.35"
-        },
-        {
-          "name": "Steven Song",
-          "single": 12.77,
-          "average": 15.36,
-          "wcaId": "",
-          "rank": 6
         },
         {
           "name": "Onew Kim",
